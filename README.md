@@ -10,7 +10,7 @@ O projeto utiliza uma stack moderna focada em produtividade, tipagem forte e per
 - **Backend**: [Node.js](https://nodejs.org/) com [Express](https://expressjs.com/)
 - **ORM**: [Prisma](https://www.prisma.io/)
 - **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/)
-- **UI & Interação**: [dnd-kit](https://dnd-kit.com/) (Drag-and-Drop) e [FullCalendar](https://fullcalendar.io/)
+- **UI & Interação**: [dnd-kit](https://dndkit.com/) (Drag-and-Drop) e [FullCalendar](https://fullcalendar.io/)
 - **Containerização**: [Docker](https://www.docker.com/) com Multi-stage builds
 - **Testes**: [Vitest](https://vitest.dev/) (Unit/Integration) e [Playwright](https://playwright.dev/) (E2E)
 
