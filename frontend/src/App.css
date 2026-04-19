@@ -1,0 +1,38 @@
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+nav button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+main {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 500px;
+}
+
+aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  z-index: 1000;
+}

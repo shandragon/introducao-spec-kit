@@ -22,13 +22,13 @@
 
 **Purpose**: Project initialization and containerization setup
 
-- [ ] T001 Create project structure (backend, frontend, shared)
-- [ ] T002 [P] Setup backend Dockerfile with multi-stage build in backend/Dockerfile
-- [ ] T003 [P] Setup frontend Dockerfile with multi-stage build in frontend/Dockerfile
-- [ ] T004 [P] Setup docker-compose.yml for backend, frontend, and postgres at root
-- [ ] T005 [P] Initialize Node.js project and install dependencies (express, prisma, vitest) in backend/package.json
-- [ ] T006 [P] Initialize React project and install dependencies (dnd-kit, fullcalendar, vitest) in frontend/package.json
-- [ ] T007 [P] Configure Playwright for E2E tests in tests/e2e/playwright.config.ts
+- [x] T001 Create project structure (backend, frontend, shared)
+- [x] T002 [P] Setup backend Dockerfile with multi-stage build in backend/Dockerfile
+- [x] T003 [P] Setup frontend Dockerfile with multi-stage build in frontend/Dockerfile
+- [x] T004 [P] Setup docker-compose.yml for backend, frontend, and postgres at root
+- [x] T005 [P] Initialize Node.js project and install dependencies (express, prisma, vitest) in backend/package.json
+- [x] T006 [P] Initialize React project and install dependencies (dnd-kit, fullcalendar, vitest) in frontend/package.json
+- [x] T007 [P] Configure Playwright for E2E tests in tests/e2e/playwright.config.ts
 
 ---
 
@@ -38,10 +38,10 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T008 Define Prisma schema for Task entity in backend/prisma/schema.prisma
-- [ ] T009 Setup shared TypeScript types in shared/types.ts
-- [ ] T010 Implement base Express server with error handling in backend/src/index.ts
-- [ ] T011 Configure Prisma client and database connection in backend/src/lib/prisma.ts
+- [x] T008 Define Prisma schema for Task entity in backend/prisma/schema.prisma
+- [x] T009 Setup shared TypeScript types in shared/types.ts
+- [x] T010 Implement base Express server with error handling in backend/src/index.ts
+- [x] T011 Configure Prisma client and database connection in backend/src/lib/prisma.ts
 
 **Checkpoint**: Foundation ready - containers running and database connected
 
@@ -55,17 +55,17 @@
 
 ### Tests for User Story 1 (MANDATORY TDD) ⚠️
 
-- [ ] T012 [P] [US1] Unit test for task creation and listing in backend/tests/unit/taskService.test.ts
-- [ ] T013 [P] [US1] Integration test for POST /tasks in backend/tests/integration/tasks.test.ts
-- [ ] T014 [P] [US1] Integration test for PATCH /tasks/:id (date update) in backend/tests/integration/tasks.test.ts
+- [x] T012 [P] [US1] Unit test for task creation and listing in backend/tests/unit/taskService.test.ts
+- [x] T013 [P] [US1] Integration test for POST /tasks in backend/tests/integration/tasks.test.ts
+- [x] T014 [P] [US1] Integration test for PATCH /tasks/:id (date update) in backend/tests/integration/tasks.test.ts
 
 ### Implementation for User Story 1
 
-- [ ] T015 [US1] Implement Task service (Create, List, UpdateDate) in backend/src/services/taskService.ts
-- [ ] T016 [US1] Implement Task controller and routes in backend/src/controllers/taskController.ts
-- [ ] T017 [P] [US1] Create Calendar component using FullCalendar in frontend/src/components/Calendar.tsx
-- [ ] T018 [US1] Implement API service for tasks in frontend/src/services/taskService.ts
-- [ ] T019 [US1] Implement Drag-and-Drop rescheduling logic in frontend/src/hooks/useTaskDragDrop.ts
+- [x] T015 [US1] Implement Task service (Create, List, UpdateDate) in backend/src/services/taskService.ts
+- [x] T016 [US1] Implement Task controller and routes in backend/src/controllers/taskController.ts
+- [x] T017 [P] [US1] Create Calendar component using FullCalendar in frontend/src/components/Calendar.tsx
+- [x] T018 [US1] Implement API service for tasks in frontend/src/services/taskService.ts
+- [x] T019 [US1] Implement Drag-and-Drop rescheduling logic in frontend/src/hooks/useTaskDragDrop.ts
 - [ ] T020 [US1] E2E test for task creation and calendar movement in tests/e2e/calendar.spec.ts
 
 **Checkpoint**: User Story 1 is functional - Tasks can be managed via Calendar
@@ -80,14 +80,14 @@
 
 ### Tests for User Story 2 (MANDATORY TDD) ⚠️
 
-- [ ] T021 [P] [US2] Unit test for recursive date displacement logic in backend/tests/unit/taskService.test.ts
-- [ ] T022 [P] [US2] Integration test for creating tasks with parentId in backend/tests/integration/tasks.test.ts
+- [x] T021 [P] [US2] Unit test for recursive date displacement logic in backend/tests/unit/taskService.test.ts
+- [x] T022 [P] [US2] Integration test for creating tasks with parentId in backend/tests/integration/tasks.test.ts
 
 ### Implementation for User Story 2
 
-- [ ] T023 [US2] Update Task service to handle parentId and recursive displacement in backend/src/services/taskService.ts
-- [ ] T024 [P] [US2] Create TreeView component in frontend/src/components/TreeView.tsx
-- [ ] T025 [US2] Implement hierarchical rendering in frontend/src/components/TreeView.tsx
+- [x] T023 [US2] Update Task service to handle parentId and recursive displacement in backend/src/services/taskService.ts
+- [x] T024 [P] [US2] Create TreeView component in frontend/src/components/TreeView.tsx
+- [x] T025 [US2] Implement hierarchical rendering in frontend/src/components/TreeView.tsx
 - [ ] T026 [US2] E2E test for hierarchy management and recursive D&D in tests/e2e/hierarchy.spec.ts
 
 **Checkpoint**: User Story 2 is functional - Hierarchical tasks and Tree View are ready
@@ -102,13 +102,13 @@
 
 ### Tests for User Story 3 (MANDATORY TDD) ⚠️
 
-- [ ] T027 [P] [US3] Unit test for status transition logic in backend/tests/unit/taskService.test.ts
-- [ ] T028 [P] [US3] Integration test for status update endpoint in backend/tests/integration/tasks.test.ts
+- [x] T027 [P] [US3] Unit test for status transition logic in backend/tests/unit/taskService.test.ts
+- [x] T028 [P] [US3] Integration test for status update endpoint in backend/tests/integration/tasks.test.ts
 
 ### Implementation for User Story 3
 
-- [ ] T029 [P] [US3] Create TaskDetail component in frontend/src/components/TaskDetail.tsx
-- [ ] T030 [US3] Implement status update logic and UI feedback in frontend/src/components/TaskDetail.tsx
+- [x] T029 [P] [US3] Create TaskDetail component in frontend/src/components/TaskDetail.tsx
+- [x] T030 [US3] Implement status update logic and UI feedback in frontend/src/components/TaskDetail.tsx
 - [ ] T031 [US3] E2E test for status transitions and detail view in tests/e2e/taskDetails.spec.ts
 
 **Checkpoint**: User Story 3 is functional - Full task lifecycle and details available
