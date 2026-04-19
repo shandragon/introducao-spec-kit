@@ -1,50 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 1.1.0 → 1.2.0
+- List of modified principles:
+  - III. Automação e Padrões Spec Kit (Added Gitflow/Semantic Commit context)
+- Added sections:
+  - X. Fluxo de Trabalho Gitflow
+  - XI. Mensagens de Commit Semântico
+- Templates requiring updates:
+  - ✅ .specify/templates/plan-template.md (Checked)
+  - ✅ .specify/templates/spec-template.md (Checked)
+  - ✅ .specify/templates/tasks-template.md (Checked)
+- Follow-up TODOs: None
+-->
+
+# Introdução Spec Kit Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Test-Driven Development (TDD) Mandatório
+Toda funcionalidade deve ser precedida por testes automatizados. O ciclo Red-Green-Refactor é obrigatório. Nenhum código de produção deve ser escrito sem um teste que falhe primeiro. A validação do comportamento é o requisito primário para qualquer entrega.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Simplicidade (KISS/YAGNI)
+Priorizar a solução mais simples que resolve o problema. Evitar abstrações prematuras e funcionalidades não solicitadas (You Ain't Gonna Need It). O design deve ser emergente e evolutivo, guiado pelos testes.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Automação e Padrões Spec Kit
+Seguir rigorosamente as convenções de estrutura e workflow do Spec Kit. Utilizar os comandos `speckit.*` para manter a integridade do projeto. A consistência entre ferramentas e código é fundamental para a agilidade do desenvolvimento. Branches e commits devem seguir os padrões de Gitflow e Commits Semânticos definidos nesta constituição.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Documentação como Verdade
+Manter planos, especificações e tarefas rigorosamente atualizados. A documentação no diretório `.specify/` e nas pastas de specs deve refletir fielmente o estado e a intenção do sistema em tempo real.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Qualidade e Revisão
+Todo código e artefato de design deve passar por validação automática e revisão de conformidade com os princípios desta constituição. A conformidade não é opcional; desvios devem ser explicitamente justificados e aprovados.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Excelência Técnica e Qualidade de Código
+O código deve ser limpo, legível e seguir os princípios SOLID. Nomes de variáveis e funções devem ser autoexplicativos. Linting e formatação automática são obrigatórios para garantir consistência estilística e evitar dívidas técnicas.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### VII. UI/UX Centrada no Usuário
+Interfaces devem ser intuitivas, responsivas e visualmente polidas. A acessibilidade é um requisito, não um recurso adicional. Toda interação deve fornecer feedback visual imediato e seguir padrões de design consistentes para reduzir a carga cognitiva do usuário.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### VIII. Performance e Eficiência
+O sistema deve ser otimizado para baixa latência e consumo mínimo de recursos. Metas de performance devem ser definidas nos planos de implementação. Gargalos devem ser identificados via profiling e resolvidos antes da entrega final.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### IX. Estratégia Abrangente de Testes
+Além do TDD para lógica de negócio, o projeto exige testes de integração para contratos de API e testes de ponta-a-ponta (E2E) para jornadas críticas de usuário. A cobertura de testes deve focar em caminhos de sucesso e cenários de erro.
+
+### X. Fluxo de Trabalho Gitflow
+O projeto adota o modelo Gitflow para gerenciamento de branches. As branches principais são `master` (produção) e `develop` (integração). Novas funcionalidades devem ser desenvolvidas em branches `feature/[ID]-[nome]`. Correções de bugs em produção usam `hotfix/*` e preparações de versão usam `release/*`. O ID deve ser o número sequencial da feature.
+
+### XI. Mensagens de Commit Semântico
+Todas as mensagens de commit devem seguir o padrão Conventional Commits. O formato obrigatório é `<tipo>(<escopo>): <descrição curta>`. Tipos permitidos: `feat` (nova funcionalidade), `fix` (correção de erro), `docs` (documentação), `style` (formatação), `refactor` (mudança de código sem alteração de comportamento), `test` (testes), `chore` (tarefas de manutenção/build).
+
+## Restrições Técnicas
+
+O projeto utiliza TypeScript/Node.js como stack base para ferramentas e automação. O versionamento de código deve seguir estritamente o fluxo de branches Gitflow (`feature/[ID]-[nome]`). As mensagens de commit devem ser semânticas conforme o padrão definido. Todas as dependências externas devem ser validadas quanto à segurança e licença antes da adoção.
+
+## Processo de Emenda
+
+Mudanças nesta constituição exigem uma análise de impacto em todos os templates e comandos do projeto. Alterações que quebrem fluxos existentes ou removam princípios fundamentais exigem incremento de versão MAJOR. Adições e refinamentos incrementam MINOR ou PATCH conforme a magnitude da mudança.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Esta constituição é a autoridade máxima do projeto e prevalece sobre decisões técnicas ad-hoc. Todos os membros do projeto são responsáveis por garantir o cumprimento destes princípios. Desvios excepcionais devem ser documentados na seção "Complexity Tracking" dos planos de implementação, detalhando a justificativa e as alternativas consideradas.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.2.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-04-19

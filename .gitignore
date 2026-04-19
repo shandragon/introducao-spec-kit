@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+/dist
+/build
+.npm
+.eslintcache
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+Thumds.db
+ehthumbs.db
+desktop.ini
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Docker
+.docker/
+*.tar
+
+# Testing
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.vitest-results
+
+# Spec Kit & Gemini CLI
+# Ignore temporary feature state
+.specify/feature.json
+# Ignore backup and temp memory files
+.specify/memory/*.tmp
+.specify/memory/*.bak
+# Ensure templates and core memory are committed
+!.specify/templates/
+!.specify/memory/constitution.md
+
+# Gemini CLI specific ignores (if any)
+.gemini/tmp/
+.gemini/*.log
