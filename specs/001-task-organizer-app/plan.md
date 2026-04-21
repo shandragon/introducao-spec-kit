@@ -1,6 +1,6 @@
 # Implementation Plan: Task Organizer App
 
-**Branch**: `feature/002-task-organizer-app` | **Date**: 2026-04-19 | **Spec**: [specs/001-task-organizer-app/spec.md]
+**Branch**: `feature/001-task-organizer-app` | **Date**: 2026-04-19 | **Spec**: [specs/001-task-organizer-app/spec.md]
 **Input**: Feature specification from `specs/001-task-organizer-app/spec.md`
 
 ## Summary
