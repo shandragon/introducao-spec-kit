@@ -65,6 +65,7 @@
 - [x] T016 [US1] Implement Task controller and routes in backend/src/controllers/taskController.ts
 - [x] T017 [P] [US1] Create Calendar component using FullCalendar in frontend/src/components/Calendar.tsx
 - [x] T018 [US1] Implement API service for tasks in frontend/src/services/taskService.ts
+- [ ] T035 [US1] Create Task Creation Form/Modal component in frontend/src/components/TaskForm.tsx
 - [x] T019 [US1] Implement Drag-and-Drop rescheduling logic in frontend/src/hooks/useTaskDragDrop.ts
 - [ ] T020 [US1] E2E test for task creation and calendar movement in tests/e2e/calendar.spec.ts
 

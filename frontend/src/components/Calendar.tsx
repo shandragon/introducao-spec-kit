@@ -7,9 +7,10 @@ import { Task } from '../../../shared/types';
 interface CalendarProps {
   tasks: Task[];
   onTaskDrop: (id: string, newDate: string) => void;
+  onDateClick: (date: string) => void;
 }
 
-const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop }) => {
+const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop, onDateClick }) => {
   const events = tasks.map(task => ({
     id: task.id,
     title: task.title,
@@ -24,6 +25,9 @@ const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop }) => {
       editable={true}
       eventDrop={(info) => {
         onTaskDrop(info.event.id, info.event.startStr);
+      }}
+      dateClick={(info) => {
+        onDateClick(info.dateStr);
       }}
     />
   );

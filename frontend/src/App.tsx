@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Calendar from './components/Calendar'
 import TreeView from './components/TreeView'
 import TaskDetail from './components/TaskDetail'
-import { listTasks, updateTaskDate } from './services/taskService'
+import TaskForm from './components/TaskForm'
+import { listTasks, updateTaskDate, createTask } from './services/taskService'
 import { Task, Status } from '../../shared/types'
 import './App.css'
 
@@ -10,6 +11,8 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [view, setView] = useState<'calendar' | 'tree'>('calendar')
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
+  const [isFormOpen, setIsFormOpen] = useState(false)
+  const [initialDate, setInitialDate] = useState<string | undefined>()
 
   const fetchTasks = async () => {
     try {
@@ -29,6 +32,21 @@ function App() {
     fetchTasks()
   }
 
+  const handleCreateTask = async (taskData: Omit<Task, 'id'>) => {
+    try {
+      await createTask(taskData)
+      setIsFormOpen(false)
+      fetchTasks()
+    } catch (error) {
+      console.error('Failed to create task:', error)
+    }
+  }
+
+  const openForm = (date?: string) => {
+    setInitialDate(date)
+    setIsFormOpen(true)
+  }
+
   return (
     <div className="app-container">
       <header>
@@ -36,16 +54,25 @@ function App() {
         <nav>
           <button onClick={() => setView('calendar')}>Calendar</button>
           <button onClick={() => setView('tree')}>Tree View</button>
+          <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
         </nav>
       </header>
 
       <main>
         {view === 'calendar' ? (
-          <Calendar tasks={tasks} onTaskDrop={handleTaskDrop} />
+          <Calendar tasks={tasks} onTaskDrop={handleTaskDrop} onDateClick={openForm} />
         ) : (
           <TreeView tasks={tasks} />
         )}
       </main>
+
+      {isFormOpen && (
+        <TaskForm 
+          initialDate={initialDate} 
+          onClose={() => setIsFormOpen(false)} 
+          onSubmit={handleCreateTask} 
+        />
+      )}
 
       {selectedTask && (
         <aside>

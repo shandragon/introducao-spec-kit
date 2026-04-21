@@ -8,7 +8,7 @@ export const listTasks = async (): Promise<Task[]> => {
   return response.json();
 };
 
-export const createTask = async (task: Partial<Task>): Promise<Task> => {
+export const createTask = async (task: Omit<Task, 'id'>): Promise<Task> => {
   const response = await fetch(`${API_URL}/tasks`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
