@@ -1,16 +1,15 @@
 <!--
 Sync Impact Report:
-- Version change: 1.1.0 → 1.2.0
+- Version change: 1.2.0 → 1.3.0
 - List of modified principles:
-  - III. Automação e Padrões Spec Kit (Added Gitflow/Semantic Commit context)
+  - None
 - Added sections:
-  - X. Fluxo de Trabalho Gitflow
-  - XI. Mensagens de Commit Semântico
+  - XII. Idioma Oficial (Português do Brasil)
 - Templates requiring updates:
-  - ✅ .specify/templates/plan-template.md (Checked)
-  - ✅ .specify/templates/spec-template.md (Checked)
-  - ✅ .specify/templates/tasks-template.md (Checked)
-- Follow-up TODOs: None
+  - ✅ .specify/templates/plan-template.md (Translated)
+  - ✅ .specify/templates/spec-template.md (Translated)
+  - ✅ .specify/templates/tasks-template.md (Translated)
+- Follow-up TODOs: Ensure all existing English documentation is gradually translated or maintained in PT-BR for new entries.
 -->
 
 # Introdução Spec Kit Constitution
@@ -50,6 +49,9 @@ O projeto adota o modelo Gitflow para gerenciamento de branches. As branches pri
 ### XI. Mensagens de Commit Semântico
 Todas as mensagens de commit devem seguir o padrão Conventional Commits. O formato obrigatório é `<tipo>(<escopo>): <descrição curta>`. Tipos permitidos: `feat` (nova funcionalidade), `fix` (correção de erro), `docs` (documentação), `style` (formatação), `refactor` (mudança de código sem alteração de comportamento), `test` (testes), `chore` (tarefas de manutenção/build).
 
+### XII. Idioma Oficial (Português do Brasil)
+O idioma oficial do projeto para toda a documentação, especificações, planos e comentários de alto nível é o Português do Brasil (PT-BR). Isso garante clareza e acessibilidade para a equipe principal. Termos técnicos em inglês podem ser mantidos quando forem padrão da indústria, mas a narrativa e a estrutura devem ser em português.
+
 ## Restrições Técnicas
 
 O projeto utiliza TypeScript/Node.js como stack base para ferramentas e automação. O versionamento de código deve seguir estritamente o fluxo de branches Gitflow (`feature/[ID]-[nome]`). As mensagens de commit devem ser semânticas conforme o padrão definido. Todas as dependências externas devem ser validadas quanto à segurança e licença antes da adoção.
@@ -62,4 +64,4 @@ Mudanças nesta constituição exigem uma análise de impacto em todos os templa
 
 Esta constituição é a autoridade máxima do projeto e prevalece sobre decisões técnicas ad-hoc. Todos os membros do projeto são responsáveis por garantir o cumprimento destes princípios. Desvios excepcionais devem ser documentados na seção "Complexity Tracking" dos planos de implementação, detalhando a justificativa e as alternativas consideradas.
 
-**Version**: 1.2.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-04-19
+**Version**: 1.3.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-04-20

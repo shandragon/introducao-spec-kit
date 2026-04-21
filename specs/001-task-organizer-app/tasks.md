@@ -1,164 +1,164 @@
-# Tasks: Task Organizer App
+# Tarefas: Aplicativo Organizador de Tarefas
 
-**Input**: Design documents from `specs/001-task-organizer-app/`
-**Prerequisites**: plan.md (required), spec.md (required), research.md, data-model.md, contracts/api.md
+**Entrada**: Documentos de design de `specs/001-task-organizer-app/`
+**Pré-requisitos**: plan.md (obrigatório), spec.md (obrigatório), research.md, data-model.md, contracts/api.md
 
-**Tests**: TDD is MANDATORY as per project constitution. All implementation tasks must be preceded by failing tests.
+**Testes**: TDD é MANDATÓRIO conforme a constituição do projeto. Todas as tarefas de implementação devem ser precedidas por testes que falham.
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing.
+**Organização**: As tarefas são agrupadas por história de usuário para permitir a implementação e teste independentes.
 
-## Format: `[ID] [P?] [Story] Description`
+## Formato: `[ID] [P?] [História] Descrição`
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
-- Include exact file paths in descriptions
+- **[P]**: Pode rodar em paralelo (arquivos diferentes, sem dependências)
+- **[História]**: A qual história de usuário esta tarefa pertence (ex: US1, US2, US3)
+- Inclua caminhos de arquivo exatos nas descrições
 
-## Path Conventions
+## Convenções de Caminho
 
-- **Web app**: `backend/src/`, `frontend/src/`, `tests/`
-- Docker orchestration at repository root
+- **App Web**: `backend/src/`, `frontend/src/`, `tests/`
+- Orquestração Docker na raiz do repositório
 
-## Phase 1: Setup (Shared Infrastructure)
+## Fase 1: Configuração (Infraestrutura Compartilhada)
 
-**Purpose**: Project initialization and containerization setup
+**Propósito**: Inicialização do projeto e configuração de containerização
 
-- [x] T001 Create project structure (backend, frontend, shared)
-- [x] T002 [P] Setup backend Dockerfile with multi-stage build in backend/Dockerfile
-- [x] T003 [P] Setup frontend Dockerfile with multi-stage build in frontend/Dockerfile
-- [x] T004 [P] Setup docker-compose.yml for backend, frontend, and postgres at root
-- [x] T005 [P] Initialize Node.js project and install dependencies (express, prisma, vitest) in backend/package.json
-- [x] T006 [P] Initialize React project and install dependencies (dnd-kit, fullcalendar, vitest) in frontend/package.json
-- [x] T007 [P] Configure Playwright for E2E tests in tests/e2e/playwright.config.ts
-
----
-
-## Phase 2: Foundational (Blocking Prerequisites)
-
-**Purpose**: Core infrastructure and database setup
-
-**⚠️ CRITICAL**: No user story work can begin until this phase is complete
-
-- [x] T008 Define Prisma schema for Task entity in backend/prisma/schema.prisma
-- [x] T009 Setup shared TypeScript types in shared/types.ts
-- [x] T010 Implement base Express server with error handling in backend/src/index.ts
-- [x] T011 Configure Prisma client and database connection in backend/src/lib/prisma.ts
-
-**Checkpoint**: Foundation ready - containers running and database connected
+- [x] T001 Criar estrutura do projeto (backend, frontend, shared)
+- [x] T002 [P] Configurar Dockerfile do backend com build multi-stage em backend/Dockerfile
+- [x] T003 [P] Configurar Dockerfile do frontend com build multi-stage em frontend/Dockerfile
+- [x] T004 [P] Configurar docker-compose.yml para backend, frontend e postgres na raiz
+- [x] T005 [P] Inicializar projeto Node.js e instalar dependências (express, prisma, vitest) em backend/package.json
+- [x] T006 [P] Inicializar projeto React e instalar dependências (dnd-kit, fullcalendar, vitest) em frontend/package.json
+- [x] T007 [P] Configurar Playwright para testes E2E em tests/e2e/playwright.config.ts
 
 ---
 
-## Phase 3: User Story 1 - Gestão de Tarefas e Calendário (Priority: P1) 🎯 MVP
+## Fase 2: Fundacional (Pré-requisitos Bloqueantes)
 
-**Goal**: Calendar view with task creation and basic drag-and-drop rescheduling
+**Propósito**: Infraestrutura central e configuração do banco de dados
 
-**Independent Test**: Create a task, verify it appears in the calendar, drag it to another day, and verify the date update persists.
+**⚠️ CRÍTICO**: Nenhum trabalho de história de usuário pode começar até que esta fase esteja concluída
 
-### Tests for User Story 1 (MANDATORY TDD) ⚠️
+- [x] T008 Definir esquema Prisma para a entidade Task em backend/prisma/schema.prisma
+- [x] T009 Configurar tipos TypeScript compartilhados em shared/types.ts
+- [x] T010 Implementar servidor Express base com tratamento de erros em backend/src/index.ts
+- [x] T011 Configurar cliente Prisma e conexão com o banco de dados em backend/src/lib/prisma.ts
 
-- [x] T012 [P] [US1] Unit test for task creation and listing in backend/tests/unit/taskService.test.ts
-- [x] T013 [P] [US1] Integration test for POST /tasks in backend/tests/integration/tasks.test.ts
-- [x] T014 [P] [US1] Integration test for PATCH /tasks/:id (date update) in backend/tests/integration/tasks.test.ts
-
-### Implementation for User Story 1
-
-- [x] T015 [US1] Implement Task service (Create, List, UpdateDate) in backend/src/services/taskService.ts
-- [x] T016 [US1] Implement Task controller and routes in backend/src/controllers/taskController.ts
-- [x] T017 [P] [US1] Create Calendar component using FullCalendar in frontend/src/components/Calendar.tsx
-- [x] T018 [US1] Implement API service for tasks in frontend/src/services/taskService.ts
-- [ ] T035 [US1] Create Task Creation Form/Modal component in frontend/src/components/TaskForm.tsx
-- [x] T019 [US1] Implement Drag-and-Drop rescheduling logic in frontend/src/hooks/useTaskDragDrop.ts
-- [ ] T020 [US1] E2E test for task creation and calendar movement in tests/e2e/calendar.spec.ts
-
-**Checkpoint**: User Story 1 is functional - Tasks can be managed via Calendar
+**Checkpoint**: Fundação pronta - containers rodando e banco de dados conectado
 
 ---
 
-## Phase 4: User Story 2 - Estrutura Hierárquica de Tarefas (Priority: P2)
+## Fase 3: História de Usuário 1 - Gestão de Tarefas e Calendário (Prioridade: P1) 🎯 MVP
 
-**Goal**: Parent/Child task relationships, Tree View, and recursive date displacement
+**Objetivo**: Visualização de calendário com criação de tarefas e reagendamento básico via drag-and-drop
 
-**Independent Test**: Create a sub-task, verify it appears under the parent in Tree View. Move parent and verify sub-tasks move accordingly.
+**Teste Independente**: Criar uma tarefa, verificar se aparece no calendário, arrastá-la para outro dia e verificar se a atualização da data persiste.
 
-### Tests for User Story 2 (MANDATORY TDD) ⚠️
+### Testes para História de Usuário 1 (TDD MANDATÓRIO) ⚠️
 
-- [x] T021 [P] [US2] Unit test for recursive date displacement logic in backend/tests/unit/taskService.test.ts
-- [x] T022 [P] [US2] Integration test for creating tasks with parentId in backend/tests/integration/tasks.test.ts
+- [x] T012 [P] [US1] Teste unitário para criação e listagem de tarefas em backend/tests/unit/taskService.test.ts
+- [x] T013 [P] [US1] Teste de integração para POST /tasks em backend/tests/integration/tasks.test.ts
+- [x] T014 [P] [US1] Teste de integração para PATCH /tasks/:id (atualização de data) em backend/tests/integration/tasks.test.ts
 
-### Implementation for User Story 2
+### Implementação para História de Usuário 1
 
-- [x] T023 [US2] Update Task service to handle parentId and recursive displacement in backend/src/services/taskService.ts
-- [x] T024 [P] [US2] Create TreeView component in frontend/src/components/TreeView.tsx
-- [x] T025 [US2] Implement hierarchical rendering in frontend/src/components/TreeView.tsx
-- [ ] T026 [US2] E2E test for hierarchy management and recursive D&D in tests/e2e/hierarchy.spec.ts
+- [x] T015 [US1] Implementar serviço de Tarefa (Criar, Listar, AtualizarData) em backend/src/services/taskService.ts
+- [x] T016 [US1] Implementar controller e rotas de Tarefa em backend/src/controllers/taskController.ts
+- [x] T017 [P] [US1] Criar componente de Calendário usando FullCalendar em frontend/src/components/Calendar.tsx
+- [x] T018 [US1] Implementar serviço de API para tarefas em frontend/src/services/taskService.ts
+- [ ] T035 [US1] Criar componente de Formulário/Modal de Criação de Tarefa em frontend/src/components/TaskForm.tsx
+- [x] T019 [US1] Implementar lógica de reagendamento Drag-and-Drop em frontend/src/hooks/useTaskDragDrop.ts
+- [ ] T020 [US1] Teste E2E para criação de tarefa e movimento no calendário em tests/e2e/calendar.spec.ts
 
-**Checkpoint**: User Story 2 is functional - Hierarchical tasks and Tree View are ready
-
----
-
-## Phase 5: User Story 3 - Controle de Status e Visualização Individual (Priority: P3)
-
-**Goal**: Status lifecycle management and detailed task view
-
-**Independent Test**: Click a task to see details, change status, and verify it updates in all views.
-
-### Tests for User Story 3 (MANDATORY TDD) ⚠️
-
-- [x] T027 [P] [US3] Unit test for status transition logic in backend/tests/unit/taskService.test.ts
-- [x] T028 [P] [US3] Integration test for status update endpoint in backend/tests/integration/tasks.test.ts
-
-### Implementation for User Story 3
-
-- [x] T029 [P] [US3] Create TaskDetail component in frontend/src/components/TaskDetail.tsx
-- [x] T030 [US3] Implement status update logic and UI feedback in frontend/src/components/TaskDetail.tsx
-- [ ] T031 [US3] E2E test for status transitions and detail view in tests/e2e/taskDetails.spec.ts
-
-**Checkpoint**: User Story 3 is functional - Full task lifecycle and details available
+**Checkpoint**: História de Usuário 1 funcional - Tarefas podem ser gerenciadas via Calendário
 
 ---
 
-## Phase N: Polish & Cross-Cutting Concerns
+## Fase 4: História de Usuário 2 - Estrutura Hierárquica de Tarefas (Prioridade: P2)
 
-**Purpose**: Final refinements and documentation
+**Objetivo**: Relações de tarefa pai/filha, Visualização em Árvore e deslocamento de data recursivo
 
-- [ ] T032 [P] Update documentation and README.md with container usage examples
-- [ ] T033 [P] Perform code cleanup and refactoring in backend/ and frontend/
-- [ ] T034 Validate all success criteria (SC-001 to SC-004) in production-like containers
+**Teste Independente**: Criar uma sub-tarefa, verificar se aparece abaixo do pai na Visualização em Árvore. Mover o pai e verificar se as sub-tarefas movem-se proporcionalmente.
 
----
+### Testes para História de Usuário 2 (TDD MANDATÓRIO) ⚠️
 
-## Dependencies & Execution Order
+- [x] T021 [P] [US2] Teste unitário para lógica de deslocamento de data recursivo em backend/tests/unit/taskService.test.ts
+- [x] T022 [P] [US2] Teste de integração para criação de tarefas com parentId em backend/tests/integration/tasks.test.ts
 
-### Phase Dependencies
+### Implementação para História de Usuário 2
 
-1. **Setup (Phase 1)** -> **Foundational (Phase 2)**
-2. **Foundational (Phase 2)** -> **User Story 1 (Phase 3)**
-3. **User Story 1** can be followed by **User Story 2** and **User Story 3**.
+- [x] T023 [US2] Atualizar serviço de Tarefa para lidar com parentId e deslocamento recursivo em backend/src/services/taskService.ts
+- [x] T024 [P] [US2] Criar componente TreeView em frontend/src/components/TreeView.tsx
+- [x] T025 [US2] Implementar renderização hierárquica em frontend/src/components/TreeView.tsx
+- [ ] T026 [US2] Teste E2E para gestão de hierarquia e D&D recursivo em tests/e2e/hierarchy.spec.ts
 
-### Parallel Opportunities
-
-- Dockerfiles (T002, T003) and Project Init (T005, T006) can run in parallel.
-- Within each story, backend tests (T012, T013, T014) can often run in parallel if they use different routes/logic.
-- Frontend components (T017, T024, T029) can be scaffolded in parallel.
+**Checkpoint**: História de Usuário 2 funcional - Tarefas hierárquicas e Visualização em Árvore prontas
 
 ---
 
-## Implementation Strategy
+## Fase 5: História de Usuário 3 - Controle de Status e Visualização Individual (Prioridade: P3)
 
-### MVP First (User Story 1)
+**Objetivo**: Gestão do ciclo de vida de status e visualização detalhada da tarefa
 
-Focus on getting the Calendar and Task creation running in Docker. This delivers the core value of temporal organization.
+**Teste Independente**: Clicar em uma tarefa para ver detalhes, alterar o status e verificar se atualiza em todas as visualizações.
 
-### Incremental Delivery
+### Testes para História de Usuário 3 (TDD MANDATÓRIO) ⚠️
 
-1. **Foundation**: Database and API scaffolding.
-2. **US1**: Core Calendar functionality (MVP).
-3. **US2**: Adds complexity with hierarchy and recursive D&D.
-4. **US3**: Completes the UX with status management and details.
+- [x] T027 [P] [US3] Teste unitário para lógica de transição de status em backend/tests/unit/taskService.test.ts
+- [x] T028 [P] [US3] Teste de integração para endpoint de atualização de status em backend/tests/integration/tasks.test.ts
+
+### Implementação para História de Usuário 3
+
+- [x] T029 [P] [US3] Criar componente TaskDetail em frontend/src/components/TaskDetail.tsx
+- [x] T030 [US3] Implementar lógica de atualização de status e feedback de UI em frontend/src/components/TaskDetail.tsx
+- [ ] T031 [US3] Teste E2E para transições de status e visualização de detalhes em tests/e2e/taskDetails.spec.ts
+
+**Checkpoint**: História de Usuário 3 funcional - Ciclo de vida completo e detalhes disponíveis
 
 ---
 
-## Notes
+## Fase N: Polimento e Questões Transversais
 
-- All implementation MUST follow TDD (Tests fail first).
-- Use `dnd-kit` and `FullCalendar` as decided in research.md.
-- Ensure Docker multi-stage builds are used for optimized images.
+**Propósito**: Refinamentos finais e documentação
+
+- [ ] T032 [P] Atualizar documentação e README.md com exemplos de uso dos containers
+- [ ] T033 [P] Realizar limpeza de código e refatoração em backend/ e frontend/
+- [ ] T034 Validar todos os critérios de sucesso (CS-001 a CS-004) em containers similares a produção
+
+---
+
+## Dependências e Ordem de Execução
+
+### Dependências de Fase
+
+1. **Configuração (Fase 1)** -> **Fundacional (Fase 2)**
+2. **Fundacional (Fase 2)** -> **História de Usuário 1 (Fase 3)**
+3. **História de Usuário 1** pode ser seguida pelas **Histórias de Usuário 2** e **3**.
+
+### Oportunidades de Paralelismo
+
+- Dockerfiles (T002, T003) e Init do Projeto (T005, T006) podem rodar em paralelo.
+- Dentro de cada história, testes de backend podem rodar em paralelo se usarem rotas/lógicas diferentes.
+- Componentes de frontend (T017, T024, T029) podem ser estruturados em paralelo.
+
+---
+
+## Estratégia de Implementação
+
+### MVP Primeiro (História de Usuário 1)
+
+Foco em colocar o Calendário e a Criação de Tarefas rodando no Docker. Isso entrega o valor central de organização temporal.
+
+### Entrega Incremental
+
+1. **Fundação**: Banco de dados e estrutura de API.
+2. **US1**: Funcionalidade central de Calendário (MVP).
+3. **US2**: Adiciona complexidade com hierarquia e D&D recursivo.
+4. **US3**: Completa a UX com gestão de status e detalhes.
+
+---
+
+## Notas
+
+- Todas as implementações DEVEM seguir TDD (Testes falham primeiro).
+- Usar `dnd-kit` e `FullCalendar` conforme decidido em research.md.
+- Garantir que builds multi-stage do Docker sejam usados para imagens otimizadas.
