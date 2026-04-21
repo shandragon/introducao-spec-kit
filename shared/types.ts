@@ -11,3 +11,6 @@ export interface Task {
   updatedAt: string;
   children?: Task[];
 }
+
+export type CreateTask = Omit<Task, "id" | "createdAt" | "updatedAt">;
+

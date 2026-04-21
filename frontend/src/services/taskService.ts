@@ -1,6 +1,6 @@
-import { Task } from '../../../shared/types';
+import { CreateTask, Task } from '../../../shared/types';
 
-const API_URL = '/api/v1';
+const API_URL = import.meta.env.VITE_API_URL || '/api/v1';
 
 export const listTasks = async (): Promise<Task[]> => {
   const response = await fetch(`${API_URL}/tasks`);
@@ -8,7 +8,7 @@ export const listTasks = async (): Promise<Task[]> => {
   return response.json();
 };
 
-export const createTask = async (task: Omit<Task, 'id'>): Promise<Task> => {
+export const createTask = async (task: CreateTask): Promise<Task> => {
   const response = await fetch(`${API_URL}/tasks`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

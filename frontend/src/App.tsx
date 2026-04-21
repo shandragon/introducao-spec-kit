@@ -4,7 +4,7 @@ import TreeView from './components/TreeView'
 import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
 import { listTasks, updateTaskDate, createTask } from './services/taskService'
-import { Task, Status } from '../../shared/types'
+import { Task, Status, CreateTask } from '../../shared/types'
 import './App.css'
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
     fetchTasks()
   }
 
-  const handleCreateTask = async (taskData: Omit<Task, 'id'>) => {
+  const handleCreateTask = async (taskData: CreateTask) => {
     try {
       await createTask(taskData)
       setIsFormOpen(false)
