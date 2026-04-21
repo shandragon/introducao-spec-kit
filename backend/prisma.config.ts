@@ -2,6 +2,11 @@
 // npm install --save-dev prisma dotenv
 import "dotenv/config";
 import { defineConfig } from "prisma/config";
+import { PrismaPg } from "@prisma/adapter-pg";
+
+const connectionString = `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:5432/${process.env.POSTGRES_DB}?schema=public`;
+
+console.log("Usando DATABASE_URL:", connectionString);
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
@@ -9,6 +14,7 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    url: process.env["DATABASE_URL"],
+    adapter: new PrismaPg({ connectionString: connectionString }),
+    url: connectionString,
   },
 });

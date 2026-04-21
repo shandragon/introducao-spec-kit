@@ -1,4 +1,4 @@
-import prisma from '../lib/prisma';
+import prisma from '@lib/prisma';
 
 export const createTask = async (data: { title: string; date: Date; parentId?: string }) => {
   return await prisma.task.create({

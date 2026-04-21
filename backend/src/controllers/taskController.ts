@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as taskService from '../services/taskService';
+import * as taskService from '@services/taskService';
 
 export const createTask = async (req: Request, res: Response) => {
   try {
@@ -16,6 +16,7 @@ export const listTasks = async (req: Request, res: Response) => {
     const tasks = await taskService.listTasks();
     res.json(tasks);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to list tasks' });
   }
 };
