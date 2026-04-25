@@ -3,11 +3,27 @@ import * as taskService from '@services/taskService';
 
 export const createTask = async (req: Request, res: Response) => {
   try {
-    const { title, description, date, parentId } = req.body;
-    const task = await taskService.createTask({ title, description, date: new Date(date), parentId });
+    const { title, description, date, startTime, durationMinutes, parentId } = req.body;
+    
+    // Provide defaults if not provided in request
+    const taskData = {
+        title,
+        description,
+        date: new Date(date),
+        startTime: startTime ? new Date(startTime) : undefined,
+        durationMinutes: durationMinutes ? parseInt(durationMinutes) : undefined,
+        parentId
+    };
+
+    const task = await taskService.createTask(taskData);
     res.status(201).json(task);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to create task' });
+  } catch (error: any) {
+    console.error("Error in createTask:", error);
+    if (error.message === 'CONFLITO') {
+      res.status(409).json({ error: 'Conflito de horário' });
+    } else {
+      res.status(500).json({ error: 'Failed to create task' });
+    }
   }
 };
 

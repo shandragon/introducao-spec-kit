@@ -1,8 +1,33 @@
 import prisma from '@lib/prisma';
 
-export const createTask = async (data: { title: string; description?: string; date: Date; parentId?: string }) => {
+export const createTask = async (data: { title: string; description?: string; date: Date; startTime?: Date; durationMinutes?: number; parentId?: string }) => {
+  const startTime = data.startTime || new Date(data.date.setHours(9, 0, 0, 0));
+  const durationMinutes = data.durationMinutes || 60;
+
+  // Validate overlaps
+  const existingTasks = await prisma.task.findMany({
+    where: {
+      date: data.date,
+    }
+  }) || [];
+
+  const newTaskEnd = new Date(startTime.getTime() + durationMinutes * 60000);
+
+  const hasOverlap = existingTasks.some(task => {
+    const taskEnd = new Date(task.startTime.getTime() + task.durationMinutes * 60000);
+    return startTime < taskEnd && newTaskEnd > task.startTime;
+  });
+
+  if (hasOverlap) {
+    throw new Error('CONFLITO');
+  }
+
   return await prisma.task.create({
-    data,
+    data: {
+      ...data,
+      startTime,
+      durationMinutes
+    },
   });
 };
 

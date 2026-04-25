@@ -83,9 +83,31 @@ describe('Tasks API Integration', () => {
     });
   });
 
+  it('should detect conflict when creating overlapping tasks', async () => {
+    const existingTask = {
+      id: 'existing-1',
+      startTime: new Date('2026-04-26T14:00:00Z'),
+      durationMinutes: 60,
+      date: new Date('2026-04-26')
+    };
+    
+    (prisma.task.findMany as any).mockResolvedValue([existingTask]);
+    
+    const newTask = {
+      title: 'Conflicting Task',
+      date: '2026-04-26',
+      startTime: '2026-04-26T14:30:00Z',
+      durationMinutes: 60
+    };
+
+    const response = await request(app)
+      .post('/tasks')
+      .send(newTask);
+
+    expect(response.status).toBe(409);
+  });
+
   it('should support at least 5 levels of hierarchical depth', async () => {
-    // This test ensures the data model and services can handle deep nesting
-    // Mocking a chain of 5 tasks
     const tasks = [
       { id: '1', parentId: null },
       { id: '2', parentId: '1' },
