@@ -125,12 +125,14 @@ function AppContent() {
   )
 }
 
+import { LoginWrapper } from './components/LoginWrapper'
+...
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LoginForm onLogin={() => {}} />} />
+          <Route path="/login" element={<LoginWrapper />} />
           <Route path="/" element={
             <PrivateRoute>
               <AppContent />
