@@ -30,8 +30,8 @@
 
 ### Implementação
 
-- [ ] T006 [US1] Atualizar `taskService.createTask` para aceitar `startTime` e `durationMinutes` em backend/src/services/taskService.ts
-- [ ] T007 [US1] Atualizar `taskController.createTask` para receber os novos campos em backend/src/controllers/taskController.ts
+- [x] T006 [US1] Atualizar `taskService.createTask` para aceitar `startTime` e `durationMinutes` em backend/src/services/taskService.ts
+- [x] T007 [US1] Atualizar `taskController.createTask` para receber os novos campos em backend/src/controllers/taskController.ts
 - [ ] T008 [US1] Atualizar `TaskForm` no frontend para incluir inputs de horário e duração em frontend/src/components/TaskForm.tsx
 - [ ] T009 [US1] Atualizar `Calendar` no frontend para exibir eventos com horário e duração em frontend/src/components/Calendar.tsx
 
