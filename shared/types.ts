@@ -5,6 +5,8 @@ export interface Task {
   title: string;
   description?: string;
   date: string;
+  startTime: string;
+  durationMinutes: number;
   status: Status;
   parentId?: string | null;
   createdAt: string;

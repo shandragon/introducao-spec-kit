@@ -7,14 +7,14 @@
 
 ## Fase 1: Configuração
 
-- [ ] T001 Adicionar campos `startTime` e `durationMinutes` ao esquema Prisma em backend/prisma/schema.prisma
-- [ ] T002 Executar migração do banco de dados para aplicar novos campos
+- [x] T001 Adicionar campos `startTime` e `durationMinutes` ao esquema Prisma em backend/prisma/schema.prisma
+- [x] T002 Executar migração do banco de dados para aplicar novos campos
 
 ---
 
 ## Fase 2: Fundacional
 
-- [ ] T003 Atualizar tipos compartilhados em shared/types.ts para incluir `startTime` e `durationMinutes`
+- [x] T003 Atualizar tipos compartilhados em shared/types.ts para incluir `startTime` e `durationMinutes`
 
 ---
 
