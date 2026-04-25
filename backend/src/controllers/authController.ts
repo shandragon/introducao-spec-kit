@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import prisma from '@lib/prisma';
-import { comparePassword, checkLoginLockout, recordLoginAttempt } from '../services/authService';
+import { comparePassword, checkLoginLockout, recordLoginAttempt } from '@services/authService';
 import { generateToken } from '@lib/auth';
 
 export const login = async (req: Request, res: Response) => {
