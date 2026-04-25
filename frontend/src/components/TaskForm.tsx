@@ -21,7 +21,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
     e.preventDefault();
     if (!title) return;
     const utcDate = `${date}T00:00:00.000Z`;
-    const startDateTime = new Date(`${date}T${startTime}:00Z`);
+    // Constructing date using local timezone to avoid UTC shift
+    const [year, month, day] = date.split('-').map(Number);
+    const [hours, minutes] = startTime.split(':').map(Number);
+    const startDateTime = new Date(year, month - 1, day, hours, minutes);
     
     try {
         await onSubmit({ 
@@ -47,7 +50,23 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
       <div className="modal-content">
         <h2>Nova Tarefa</h2>
         <form onSubmit={handleSubmit}>
-          {/* ... inputs existentes ... */}
+          <div className="form-group">
+            <label>Título</label>
+            <input 
+              type="text" 
+              value={title} 
+              onChange={(e) => setTitle(e.target.value)} 
+              required 
+              placeholder="Ex: Lavar o carro"
+            />
+          </div>
+          <div className="form-group">
+            <label>Descrição</label>
+            <textarea 
+              value={description} 
+              onChange={(e) => setDescription(e.target.value)} 
+            />
+          </div>
           <div className="form-group">
             <label>Horário de Início</label>
             <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} required />
@@ -64,6 +83,6 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
       </div>
     </div>
   );
-
+}
 
 export default TaskForm;
