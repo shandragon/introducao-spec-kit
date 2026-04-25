@@ -27,16 +27,22 @@ describe('Tasks API Integration', () => {
     vi.clearAllMocks();
   });
 
-  it('should create a task via POST /tasks', async () => {
-    const taskData = { title: 'New Task', date: '2026-04-25T00:00:00.000Z' };
-    (prisma.task.create as any).mockResolvedValue({ id: '1', ...taskData, status: 'PENDENTE' });
+  it('should create a task with startTime and durationMinutes via POST /tasks', async () => {
+    const taskData = { 
+      title: 'Scheduled Task', 
+      date: '2026-04-26',
+      startTime: '2026-04-26T14:00:00Z',
+      durationMinutes: 90 
+    };
+    (prisma.task.create as any).mockResolvedValue({ id: '2', ...taskData, status: 'PENDENTE' });
 
     const response = await request(app)
       .post('/tasks')
       .send(taskData);
 
     expect(response.status).toBe(201);
-    expect(response.body.title).toBe(taskData.title);
+    expect(response.body.startTime).toBeDefined();
+    expect(response.body.durationMinutes).toBe(90);
     expect(prisma.task.create).toHaveBeenCalled();
   });
 
