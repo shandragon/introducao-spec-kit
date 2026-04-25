@@ -16,6 +16,7 @@
 
 - [x] T003 Atualizar tipos compartilhados em shared/types.ts para incluir `startTime` e `durationMinutes`
 
+
 ---
 
 ## Fase 3: História de Usuário 1 - Definição de Horário e Duração (Prioridade: P1)
