@@ -1,14 +1,14 @@
 <!--
 Sync Impact Report:
-- Version change: 1.3.0 → 1.4.0
+- Version change: 1.4.0 → 1.5.0
 - List of modified principles:
   - None
 - Added sections:
-  - XIII. Consistência de Estilo no Frontend
+  - XIV. Proibição de !important no CSS
 - Templates requiring updates:
-  - ✅ .specify/templates/plan-template.md (No changes needed, generic gate)
-  - ✅ .specify/templates/spec-template.md (No changes needed)
-  - ✅ .specify/templates/tasks-template.md (No changes needed)
+  - ✅ .specify/templates/plan-template.md
+  - ✅ .specify/templates/spec-template.md
+  - ✅ .specify/templates/tasks-template.md
 - Follow-up TODOs: None.
 -->
 
@@ -55,6 +55,9 @@ O idioma oficial do projeto para toda a documentação, especificações, planos
 ### XIII. Consistência de Estilo no Frontend
 A interface deve manter um design uniforme em todas as telas. Elementos de UI, como botões, formulários e tipografia, devem seguir rigorosamente o mesmo padrão visual e comportamento em toda a aplicação. A consistência reduz a carga cognitiva do usuário e fortalece a identidade visual da aplicação.
 
+### XIV. Proibição de !important no CSS
+É estritamente proibido o uso da diretiva `!important` nos arquivos CSS. Esta diretiva quebra a hierarquia de especificidade, tornando o estilo frágil, difícil de depurar e manter. O design deve ser alcançado através de seletores estruturados e organização de classes adequadas.
+
 ## Restrições Técnicas
 
 O projeto utiliza TypeScript/Node.js como stack base para ferramentas e automação. O versionamento de código deve seguir estritamente o fluxo de branches Gitflow (`feature/[ID]-[nome]`). As mensagens de commit devem ser semânticas conforme o padrão definido. Todas as dependências externas devem ser validadas quanto à segurança e licença antes da adoção.
@@ -67,4 +70,4 @@ Mudanças nesta constituição exigem uma análise de impacto em todos os templa
 
 Esta constituição é a autoridade máxima do projeto e prevalece sobre decisões técnicas ad-hoc. Todos os membros do projeto são responsáveis por garantir o cumprimento destes princípios. Desvios excepcionais devem ser documentados na seção "Complexity Tracking" dos planos de implementação, detalhando a justificativa e as alternativas consideradas.
 
-**Version**: 1.4.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-04-25
+**Version**: 1.5.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-04-25
