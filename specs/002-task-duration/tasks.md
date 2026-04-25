@@ -25,7 +25,7 @@
 
 ### Testes (TDD MANDATÓRIO) ⚠️
 
-- [ ] T004 [P] [US1] Teste unitário para validação de formato de horário em backend/tests/unit/taskValidation.test.ts
+- [x] T004 [P] [US1] Teste unitário para validação de formato de horário em backend/tests/unit/taskValidation.test.ts
 - [ ] T005 [P] [US1] Teste de integração para criação de tarefa com hora e duração em backend/tests/integration/tasks.test.ts
 
 ### Implementação
