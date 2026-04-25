@@ -59,7 +59,7 @@
 
 ## Fase N: Polimento
 
-- [ ] T014 [P] Validar critérios de sucesso CS-001 a CS-003
+- [x] T014 [P] Validar critérios de sucesso CS-001 a CS-003
 
 ---
 
