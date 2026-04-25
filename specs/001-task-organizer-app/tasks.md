@@ -39,9 +39,9 @@
 **⚠️ CRÍTICO**: Nenhum trabalho de história de usuário pode começar até que esta fase esteja concluída
 
 - [x] T008 Definir esquema Prisma para a entidade Task em backend/prisma/schema.prisma
-- [x] T009 Configurar tipos TypeScript compartilhados em shared/types.ts
-- [x] T010 Implementar servidor Express base com tratamento de erros em backend/src/index.ts
-- [x] T011 Configurar cliente Prisma e conexão com o banco de dados em backend/src/lib/prisma.ts
+- [x] [X] T009 Configurar tipos TypeScript compartilhados em shared/types.ts
+- [x] [X] T010 Implementar servidor Express base com tratamento de erros em backend/src/index.ts
+- [x] [X] T011 Configurar cliente Prisma e conexão com o banco de dados em backend/src/lib/prisma.ts
 
 **Checkpoint**: Fundação pronta - containers rodando e banco de dados conectado
 
@@ -58,19 +58,19 @@
 - [x] T012 [P] [US1] Teste unitário para criação e listagem de tarefas em backend/tests/unit/taskService.test.ts
 - [x] T013 [P] [US1] Teste de integração para POST /tasks em backend/tests/integration/tasks.test.ts
 - [x] T014 [P] [US1] Teste de integração para PATCH /tasks/:id (atualização de data) em backend/tests/integration/tasks.test.ts
-- [ ] T036 [P] [US1] Teste de integração para DELETE /tasks/:id em backend/tests/integration/tasks.test.ts
-- [ ] T037 [P] [US1] Teste de integração para atualização de título e descrição em backend/tests/integration/tasks.test.ts
+- [x] T036 [P] [US1] Teste de integração para DELETE /tasks/:id em backend/tests/integration/tasks.test.ts
+- [x] T037 [P] [US1] Teste de integração para atualização de título e descrição em backend/tests/integration/tasks.test.ts
 
 ### Implementação para História de Usuário 1
 
 - [x] T015 [US1] Implementar serviço de Tarefa (Criar, Listar, AtualizarData) em backend/src/services/taskService.ts
-- [ ] T038 [US1] Implementar exclusão e edição completa no TaskService e Controller em backend/src/services/taskService.ts
+- [x] T038 [US1] Implementar exclusão e edição completa no TaskService e Controller em backend/src/services/taskService.ts
 - [x] T016 [US1] Implementar controller e rotas de Tarefa em backend/src/controllers/taskController.ts
 - [x] T017 [P] [US1] Criar componente de Calendário usando FullCalendar em frontend/src/components/Calendar.tsx
 - [x] T018 [US1] Implementar serviço de API para tarefas em frontend/src/services/taskService.ts
 - [x] T035 [US1] Criar componente de Formulário/Modal de Criação de Tarefa em frontend/src/components/TaskForm.tsx
 - [x] T019 [US1] Implementar lógica de reagendamento Drag-and-Drop em frontend/src/hooks/useTaskDragDrop.ts
-- [ ] T020 [US1] Teste E2E para criação de tarefa e movimento no calendário em tests/e2e/calendar.spec.ts
+- [x] T020 [US1] Teste E2E para criação de tarefa e movimento no calendário em tests/e2e/calendar.spec.ts
 
 **Checkpoint**: História de Usuário 1 funcional - Tarefas podem ser gerenciadas via Calendário
 
@@ -86,14 +86,14 @@
 
 - [x] T021 [P] [US2] Teste unitário para lógica de deslocamento de data recursivo em backend/tests/unit/taskService.test.ts
 - [x] T022 [P] [US2] Teste de integração para criação de tarefas com parentId em backend/tests/integration/tasks.test.ts
-- [ ] T039 [P] [US2] Teste de integração para validar suporte a 5 níveis de profundidade em backend/tests/integration/tasks.test.ts
+- [x] T039 [P] [US2] Teste de integração para validar suporte a 5 níveis de profundidade em backend/tests/integration/tasks.test.ts
 
 ### Implementação para História de Usuário 2
 
 - [x] T023 [US2] Atualizar serviço de Tarefa para lidar com parentId e deslocamento recursivo em backend/src/services/taskService.ts
 - [x] T024 [P] [US2] Criar componente TreeView em frontend/src/components/TreeView.tsx
 - [x] T025 [US2] Implementar renderização hierárquica em frontend/src/components/TreeView.tsx
-- [ ] T026 [US2] Teste E2E para gestão de hierarquia e D&D recursivo em tests/e2e/hierarchy.spec.ts
+- [x] T026 [US2] Teste E2E para gestão de hierarquia e D&D recursivo em tests/e2e/hierarchy.spec.ts
 
 **Checkpoint**: História de Usuário 2 funcional - Tarefas hierárquicas e Visualização em Árvore prontas
 
@@ -114,9 +114,9 @@
 
 - [x] T029 [P] [US3] Criar componente TaskDetail em frontend/src/components/TaskDetail.tsx
 - [x] T030 [US3] Implementar lógica de atualização de status e feedback de UI em frontend/src/components/TaskDetail.tsx
-- [ ] T040 [US3] Implementar botão de exclusão e edição de campos de texto no TaskDetail em frontend/src/components/TaskDetail.tsx
-- [ ] T041 [US1] Integrar exclusão no serviço de API do frontend em frontend/src/services/taskService.ts
-- [ ] T031 [US3] Teste E2E para transições de status e visualização de detalhes em tests/e2e/taskDetails.spec.ts
+- [x] T040 [US3] Implementar botão de exclusão e edição de campos de texto no TaskDetail em frontend/src/components/TaskDetail.tsx
+- [x] T041 [US1] Integrar exclusão no serviço de API do frontend em frontend/src/services/taskService.ts
+- [x] T031 [US3] Teste E2E para transições de status e visualização de detalhes em tests/e2e/taskDetails.spec.ts
 
 **Checkpoint**: História de Usuário 3 funcional - Ciclo de vida completo e detalhes disponíveis
 
@@ -126,9 +126,9 @@
 
 **Propósito**: Refinamentos finais e documentação
 
-- [ ] T032 [P] Atualizar documentação e README.md com exemplos de uso dos containers
-- [ ] T033 [P] Realizar limpeza de código e refatoração em backend/ e frontend/
-- [ ] T034 Validar todos os critérios de sucesso (CS-001 a CS-004) em containers similares a produção
+- [x] T032 [P] Atualizar documentação e README.md com exemplos de uso dos containers
+- [x] T033 [P] Realizar limpeza de código e refatoração em backend/ e frontend/
+- [x] T034 Validar todos os critérios de sucesso (CS-001 a CS-004) em containers similares a produção
 
 ---
 
@@ -168,3 +168,4 @@ Foco em colocar o Calendário e a Criação de Tarefas rodando no Docker. Isso e
 - Todas as implementações DEVEM seguir TDD (Testes falham primeiro).
 - Usar `dnd-kit` e `FullCalendar` conforme decidido em research.md.
 - Garantir que builds multi-stage do Docker sejam usados para imagens otimizadas.
+- **Bug Fix**: Corrigido deslocamento de data no calendário (off-by-one) em Calendar.tsx, TaskForm.tsx e App.tsx.

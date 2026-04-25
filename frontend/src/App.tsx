@@ -3,7 +3,7 @@ import Calendar from './components/Calendar'
 import TreeView from './components/TreeView'
 import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
-import { listTasks, updateTaskDate, createTask } from './services/taskService'
+import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails } from './services/taskService'
 import { Task, Status, CreateTask } from '../../shared/types'
 import './App.css'
 
@@ -45,6 +45,34 @@ function App() {
     }
   }
 
+  const handleDeleteTask = async (id: string) => {
+    try {
+      await deleteTask(id)
+      setSelectedTask(null)
+      fetchTasks()
+    } catch (error) {
+      console.error('Failed to delete task:', error)
+    }
+  }
+
+  const handleStatusChange = async (id: string, status: Status) => {
+    try {
+      await updateTaskStatus(id, status)
+      fetchTasks()
+    } catch (error) {
+      console.error('Failed to update status:', error)
+    }
+  }
+
+  const handleUpdateDetails = async (id: string, details: { title: string; description?: string }) => {
+    try {
+      await updateTaskDetails(id, details)
+      fetchTasks()
+    } catch (error) {
+      console.error('Failed to update details:', error)
+    }
+  }
+
   const openForm = (date?: string) => {
     setInitialDate(date)
     setIsFormOpen(true)
@@ -63,7 +91,7 @@ function App() {
 
       <main>
         {view === 'calendar' ? (
-          <Calendar tasks={tasks} onTaskDrop={handleTaskDrop} onDateClick={openForm} />
+          <Calendar tasks={tasks} onTaskDrop={handleTaskDrop} onDateClick={openForm} onTaskClick={(task) => setSelectedTask(task)} />
         ) : (
           <TreeView tasks={tasks} />
         )}
@@ -81,10 +109,9 @@ function App() {
         <aside>
           <TaskDetail 
             task={selectedTask} 
-            onStatusChange={(id, status) => {
-              // Handle status change
-              console.log('Status change', id, status)
-            }} 
+            onStatusChange={handleStatusChange}
+            onDelete={handleDeleteTask}
+            onUpdate={handleUpdateDetails}
           />
           <button onClick={() => setSelectedTask(null)}>Close</button>
         </aside>

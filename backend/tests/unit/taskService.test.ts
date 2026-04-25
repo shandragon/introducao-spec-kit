@@ -9,6 +9,7 @@ vi.mock('../../src/lib/prisma', () => ({
       findMany: vi.fn(),
       findUnique: vi.fn(),
       update: vi.fn(),
+      delete: vi.fn(),
     },
   },
 }));
@@ -76,6 +77,33 @@ describe('taskService', () => {
     expect(prisma.task.update).toHaveBeenCalledWith({
       where: { id },
       data: { status }
+    });
+  });
+
+  it('should update task details (title and description)', async () => {
+    const id = '1';
+    const data = { title: 'Updated Title', description: 'Updated Description' };
+    (prisma.task.update as any).mockResolvedValue({ id, ...data });
+
+    const { updateTask } = await import('../../src/services/taskService');
+    const result = await updateTask(id, data);
+
+    expect(result.title).toBe(data.title);
+    expect(prisma.task.update).toHaveBeenCalledWith({
+      where: { id },
+      data
+    });
+  });
+
+  it('should delete a task', async () => {
+    const id = '1';
+    (prisma.task.delete as any).mockResolvedValue({ id });
+
+    const { deleteTask } = await import('../../src/services/taskService');
+    await deleteTask(id);
+
+    expect(prisma.task.delete).toHaveBeenCalledWith({
+      where: { id }
     });
   });
 });

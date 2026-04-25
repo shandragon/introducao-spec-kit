@@ -8,9 +8,10 @@ interface CalendarProps {
   tasks: Task[];
   onTaskDrop: (id: string, newDate: string) => void;
   onDateClick: (date: string) => void;
+  onTaskClick: (task: Task) => void;
 }
 
-const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop, onDateClick }) => {
+const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop, onDateClick, onTaskClick }) => {
   const events = tasks.map(task => ({
     id: task.id,
     title: task.title,
@@ -30,6 +31,10 @@ const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop, onDateClick }) =
       }}
       dateClick={(info) => {
         onDateClick(info.dateStr);
+      }}
+      eventClick={(info) => {
+        const task = tasks.find(t => t.id === info.event.id);
+        if (task) onTaskClick(task);
       }}
     />
   );

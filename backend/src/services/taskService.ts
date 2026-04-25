@@ -37,3 +37,19 @@ export const updateTaskStatus = async (id: string, status: any) => {
     data: { status },
   });
 };
+
+export const updateTask = async (id: string, data: { title?: string; description?: string }) => {
+  return await prisma.task.update({
+    where: { id },
+    data,
+  });
+};
+
+export const deleteTask = async (id: string) => {
+  // Prisma relation cascade in schema would be better, 
+  // but we can do it here for explicit control if not defined in schema.
+  // Actually, standard practice for hierarchy is cascade on delete.
+  return await prisma.task.delete({
+    where: { id },
+  });
+};

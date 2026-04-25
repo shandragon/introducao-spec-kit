@@ -42,3 +42,24 @@ export const updateTaskStatus = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Failed to update task status' });
   }
 };
+
+export const updateTask = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params as { id: string };
+    const { title, description } = req.body;
+    const task = await taskService.updateTask(id, { title, description });
+    res.json(task);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update task' });
+  }
+};
+
+export const deleteTask = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params as { id: string };
+    await taskService.deleteTask(id);
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete task' });
+  }
+};
