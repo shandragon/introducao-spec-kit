@@ -1,5 +1,12 @@
 export type Status = 'PENDENTE' | 'EM_PLANEJAMENTO' | 'EM_EXECUCAO' | 'CONCLUIDA';
 
+export interface User {
+  id: string;
+  login: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Task {
   id: string;
   title: string;

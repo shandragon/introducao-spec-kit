@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Calendar from './components/Calendar'
 import TreeView from './components/TreeView'
 import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
 import TaskModal from './components/TaskModal'
+import { LoginForm } from './components/LoginForm'
+import { PrivateRoute } from './components/PrivateRoute'
+import { AuthProvider } from './context/AuthContext'
 import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails } from './services/taskService'
 import { Task, Status, CreateTask } from '../../shared/types'
 import './App.css'
 
-function App() {
+function AppContent() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [view, setView] = useState<'calendar' | 'tree'>('calendar')
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
@@ -29,8 +33,6 @@ function App() {
   }, [])
 
   const handleTaskDrop = async (id: string, newDate: string) => {
-    // FullCalendar's startStr for all-day events is usually 'YYYY-MM-DD'.
-    // We append the UTC suffix to ensure backend consistency.
     const utcDate = newDate.includes('T') ? newDate : `${newDate}T00:00:00.000Z`;
     await updateTaskDate(id, utcDate)
     fetchTasks()
@@ -119,9 +121,26 @@ function App() {
           />
         )}
       </TaskModal>
-
     </div>
   )
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginForm onLogin={() => {}} />} />
+          <Route path="/" element={
+            <PrivateRoute>
+              <AppContent />
+            </PrivateRoute>
+          } />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }
 
 export default App
