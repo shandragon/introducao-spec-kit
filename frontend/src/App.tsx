@@ -6,6 +6,7 @@ import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
 import TaskModal from './components/TaskModal'
 import { LoginForm } from './components/LoginForm'
+import { LoginWrapper } from './components/LoginWrapper'
 import { PrivateRoute } from './components/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
 import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails } from './services/taskService'
@@ -125,8 +126,6 @@ function AppContent() {
   )
 }
 
-import { LoginWrapper } from './components/LoginWrapper'
-...
 function App() {
   return (
     <AuthProvider>
