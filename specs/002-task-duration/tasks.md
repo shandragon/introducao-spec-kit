@@ -45,13 +45,13 @@
 
 ### Testes (TDD MANDATÓRIO) ⚠️
 
-- [ ] T010 [P] [US2] Teste de integração para conflito de horários em backend/tests/integration/tasks.test.ts
+- [x] T010 [P] [US2] Teste de integração para conflito de horários em backend/tests/integration/tasks.test.ts
 
 ### Implementação
 
-- [ ] T011 [US2] Implementar lógica de detecção de conflitos no `taskService` em backend/src/services/taskService.ts
-- [ ] T012 [US2] Atualizar controlador para retornar erro 409 em caso de conflito em backend/src/controllers/taskController.ts
-- [ ] T013 [US2] Exibir alerta de conflito na UI do `TaskForm` ou calendário em frontend/src/components/TaskForm.tsx
+- [x] T011 [US2] Implementar lógica de detecção de conflitos no `taskService` em backend/src/services/taskService.ts
+- [x] T012 [US2] Atualizar controlador para retornar erro 409 em caso de conflito em backend/src/controllers/taskController.ts
+- [x] T013 [US2] Exibir alerta de conflito na UI do `TaskForm` ou calendário em frontend/src/components/TaskForm.tsx
 
 **Checkpoint**: Conflitos de agendamento são validados no backend e exibidos na UI.
 

@@ -17,19 +17,29 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
   const [duration, setDuration] = useState(60);
   const [status, setStatus] = useState<Status>('PENDENTE');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title) return;
     const utcDate = `${date}T00:00:00.000Z`;
     const startDateTime = new Date(`${date}T${startTime}:00Z`);
-    onSubmit({ 
-      title, 
-      description, 
-      date: utcDate, 
-      startTime: startDateTime.toISOString(), 
-      durationMinutes: duration, 
-      status 
-    } as any);
+    
+    try {
+        await onSubmit({ 
+          title, 
+          description, 
+          date: utcDate, 
+          startTime: startDateTime.toISOString(), 
+          durationMinutes: duration, 
+          status 
+        } as any);
+        onClose();
+    } catch (err: any) {
+        if (err.message === 'CONFLITO') {
+            alert('Conflito de horário detectado! Por favor, escolha outro horário.');
+        } else {
+            alert('Erro ao criar tarefa.');
+        }
+    }
   };
 
   return (
