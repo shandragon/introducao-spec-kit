@@ -26,8 +26,8 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, onStatusChange, onDelete,
         <div>
           <input value={title} onChange={(e) => setTitle(e.target.value)} />
           <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-          <button onClick={handleSave}>Salvar</button>
-          <button onClick={() => setIsEditing(false)}>Cancelar</button>
+          <button className="primary" onClick={handleSave}>Salvar</button>
+          <button className="secondary" onClick={() => setIsEditing(false)}>Cancelar</button>
         </div>
       ) : (
         <div>

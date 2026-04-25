@@ -64,7 +64,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
             </select>
           </div>
           <div className="form-actions">
-            <button type="button" onClick={onClose}>Cancelar</button>
+            <button type="button" className="secondary" onClick={onClose}>Cancelar</button>
             <button type="submit" className="primary">Criar Tarefa</button>
           </div>
         </form>

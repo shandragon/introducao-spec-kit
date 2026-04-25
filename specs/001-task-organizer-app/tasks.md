@@ -169,3 +169,4 @@ Foco em colocar o Calendário e a Criação de Tarefas rodando no Docker. Isso e
 - Usar `dnd-kit` e `FullCalendar` conforme decidido em research.md.
 - Garantir que builds multi-stage do Docker sejam usados para imagens otimizadas.
 - **Bug Fix**: Corrigido deslocamento de data no calendário (off-by-one) em Calendar.tsx, TaskForm.tsx e App.tsx.
+- **UI Refinement**: Padronização visual dos botões (confirmar, cancelar, outros) com estados de hover em App.css.

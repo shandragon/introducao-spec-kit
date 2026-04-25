@@ -113,7 +113,7 @@ function App() {
             onDelete={handleDeleteTask}
             onUpdate={handleUpdateDetails}
           />
-          <button onClick={() => setSelectedTask(null)}>Close</button>
+          <button className="secondary" onClick={() => setSelectedTask(null)}>Close</button>
         </aside>
       )}
     </div>
