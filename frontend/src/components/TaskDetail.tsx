@@ -32,6 +32,7 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, onStatusChange, onDelete,
       ) : (
         <div>
           <h2>{task.title}</h2>
+          <p><strong>Data:</strong> {new Date(task.date).toLocaleDateString('pt-BR')}</p>
           <p>{task.description}</p>
           <button onClick={() => setIsEditing(true)}>Editar</button>
           <button className="danger" onClick={() => onDelete(task.id)}>Excluir</button>

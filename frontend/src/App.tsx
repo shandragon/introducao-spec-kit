@@ -3,6 +3,7 @@ import Calendar from './components/Calendar'
 import TreeView from './components/TreeView'
 import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
+import TaskModal from './components/TaskModal'
 import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails } from './services/taskService'
 import { Task, Status, CreateTask } from '../../shared/types'
 import './App.css'
@@ -105,17 +106,20 @@ function App() {
         />
       )}
 
-      {selectedTask && (
-        <aside>
+      <TaskModal 
+        isOpen={!!selectedTask} 
+        onClose={() => setSelectedTask(null)}
+      >
+        {selectedTask && (
           <TaskDetail 
             task={selectedTask} 
             onStatusChange={handleStatusChange}
             onDelete={handleDeleteTask}
             onUpdate={handleUpdateDetails}
           />
-          <button className="secondary" onClick={() => setSelectedTask(null)}>Close</button>
-        </aside>
-      )}
+        )}
+      </TaskModal>
+
     </div>
   )
 }
