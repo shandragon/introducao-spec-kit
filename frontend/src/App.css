@@ -31,6 +31,15 @@ aside {
   z-index: 1000;
 }
 
+/* Calendar Event Styling */
+.fc-event {
+  background-color: #add8e6 !important; /* Light blue */
+  border: 1px solid black !important;
+  border-radius: 4px !important;
+  color: #333 !important;
+  padding: 2px 4px;
+}
+
 /* Button Base Styles */
 button {
   padding: 8px 16px;
