@@ -58,10 +58,13 @@
 - [x] T012 [P] [US1] Teste unitário para criação e listagem de tarefas em backend/tests/unit/taskService.test.ts
 - [x] T013 [P] [US1] Teste de integração para POST /tasks em backend/tests/integration/tasks.test.ts
 - [x] T014 [P] [US1] Teste de integração para PATCH /tasks/:id (atualização de data) em backend/tests/integration/tasks.test.ts
+- [ ] T036 [P] [US1] Teste de integração para DELETE /tasks/:id em backend/tests/integration/tasks.test.ts
+- [ ] T037 [P] [US1] Teste de integração para atualização de título e descrição em backend/tests/integration/tasks.test.ts
 
 ### Implementação para História de Usuário 1
 
 - [x] T015 [US1] Implementar serviço de Tarefa (Criar, Listar, AtualizarData) em backend/src/services/taskService.ts
+- [ ] T038 [US1] Implementar exclusão e edição completa no TaskService e Controller em backend/src/services/taskService.ts
 - [x] T016 [US1] Implementar controller e rotas de Tarefa em backend/src/controllers/taskController.ts
 - [x] T017 [P] [US1] Criar componente de Calendário usando FullCalendar em frontend/src/components/Calendar.tsx
 - [x] T018 [US1] Implementar serviço de API para tarefas em frontend/src/services/taskService.ts
@@ -83,6 +86,7 @@
 
 - [x] T021 [P] [US2] Teste unitário para lógica de deslocamento de data recursivo em backend/tests/unit/taskService.test.ts
 - [x] T022 [P] [US2] Teste de integração para criação de tarefas com parentId em backend/tests/integration/tasks.test.ts
+- [ ] T039 [P] [US2] Teste de integração para validar suporte a 5 níveis de profundidade em backend/tests/integration/tasks.test.ts
 
 ### Implementação para História de Usuário 2
 
@@ -95,11 +99,11 @@
 
 ---
 
-## Fase 5: História de Usuário 3 - Controle de Status e Visualização Individual (Prioridade: P3)
+## Fase 5: História de Usuário 3 - Controle de Status e Visualização Individual (Detalhes) (Prioridade: P3)
 
-**Objetivo**: Gestão do ciclo de vida de status e visualização detalhada da tarefa
+**Objetivo**: Gestão do ciclo de vida de status e Visualização Individual (Detalhes) da tarefa
 
-**Teste Independente**: Clicar em uma tarefa para ver detalhes, alterar o status e verificar se atualiza em todas as visualizações.
+**Teste Independente**: Clicar em uma tarefa para ver detalhes na Visualização Individual, alterar o status e verificar se atualiza em todas as visualizações.
 
 ### Testes para História de Usuário 3 (TDD MANDATÓRIO) ⚠️
 
@@ -110,6 +114,8 @@
 
 - [x] T029 [P] [US3] Criar componente TaskDetail em frontend/src/components/TaskDetail.tsx
 - [x] T030 [US3] Implementar lógica de atualização de status e feedback de UI em frontend/src/components/TaskDetail.tsx
+- [ ] T040 [US3] Implementar botão de exclusão e edição de campos de texto no TaskDetail em frontend/src/components/TaskDetail.tsx
+- [ ] T041 [US1] Integrar exclusão no serviço de API do frontend em frontend/src/services/taskService.ts
 - [ ] T031 [US3] Teste E2E para transições de status e visualização de detalhes em tests/e2e/taskDetails.spec.ts
 
 **Checkpoint**: História de Usuário 3 funcional - Ciclo de vida completo e detalhes disponíveis

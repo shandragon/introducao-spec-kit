@@ -53,8 +53,10 @@ backend/
 └── Dockerfile           # Build multi-stage
 frontend/
 ├── src/
-├── tests/
+├── tests/               # Testes unitários/integração frontend
 └── Dockerfile           # Build multi-stage
+tests/
+└── e2e/                 # Testes de ponta-a-ponta (Playwright) na raiz
 docker-compose.yml       # Orquestração para FE, BE, DB
 ```
 

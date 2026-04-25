@@ -37,9 +37,9 @@ Como usuário, quero organizar minhas tarefas em níveis de sub-tarefas (pai e f
 
 ---
 
-### História de Usuário 3 - Controle de Status e Visualização Individual (Prioridade: P3)
+### História de Usuário 3 - Controle de Status e Visualização Individual (Detalhes) (Prioridade: P3)
 
-Como usuário, quero gerenciar o status das minhas tarefas (pendente, em planejamento, em execução, concluída) e visualizar os detalhes de cada tarefa individualmente.
+Como usuário, quero gerenciar o status das minhas tarefas (pendente, em planejamento, em execução, concluída) e visualizar os detalhes de cada tarefa individualmente na Visualização Individual (Detalhes).
 
 **Por que esta prioridade**: Completa o ciclo de vida da tarefa e atende à necessidade de visualização detalhada.
 
@@ -65,7 +65,7 @@ Como usuário, quero gerenciar o status das minhas tarefas (pendente, em planeja
 - **RF-003**: O sistema DEVE fornecer uma visualização de calendário mensal/semanal.
 - **RF-004**: O sistema DEVE permitir o reagendamento de tarefas via Drag-and-Drop no calendário.
 - **RF-005**: O sistema DEVE suportar os status: Pendente, Em Planejamento, Em Execução e Concluída.
-- **RF-006**: O sistema DEVE fornecer três modos de visualização: Individual, Árvore Hierárquica e Calendário.
+- **RF-006**: O sistema DEVE fornecer três modos de visualização: Individual (Detalhes), Árvore Hierárquica e Calendário.
 - **RF-007**: O sistema DEVE persistir os dados em um banco de dados relacional (PostgreSQL).
 
 ### Entidades Chave *(inclua se a funcionalidade envolver dados)*
@@ -79,7 +79,7 @@ Como usuário, quero gerenciar o status das minhas tarefas (pendente, em planeja
 ### Resultados Mensuráveis
 
 - **CS-001**: O usuário deve conseguir criar uma tarefa e vê-la no calendário em menos de 10 segundos.
-- **CS-002**: O sistema deve suportar a renderização de uma árvore hierárquica com pelo menos 5 níveis de profundidade sem degradação de performance visível.
+- **CS-002**: O sistema deve suportar a renderização de uma árvore hierárquica com pelo menos 5 níveis de profundidade, garantindo tempo de renderização inicial inferior a 150ms para uma lista de 100 tarefas.
 - **CS-003**: A ação de arrastar e soltar deve atualizar a data da tarefa e de suas filhas (deslocamento relativo) no banco de dados relacional em menos de 800ms.
 - **CS-004**: 100% das transições de status devem ser refletidas em todas as visualizações em menos de 200ms.
 

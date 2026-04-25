@@ -28,7 +28,10 @@ function App() {
   }, [])
 
   const handleTaskDrop = async (id: string, newDate: string) => {
-    await updateTaskDate(id, newDate)
+    // FullCalendar's startStr for all-day events is usually 'YYYY-MM-DD'.
+    // We append the UTC suffix to ensure backend consistency.
+    const utcDate = newDate.includes('T') ? newDate : `${newDate}T00:00:00.000Z`;
+    await updateTaskDate(id, utcDate)
     fetchTasks()
   }
 

@@ -18,7 +18,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title) return;
-    onSubmit({ title, description, date, status });
+    // Append T00:00:00Z to ensure the backend creates the date at UTC midnight,
+    // avoiding timezone shifts when retrieving it later.
+    const utcDate = `${date}T00:00:00.000Z`;
+    onSubmit({ title, description, date: utcDate, status });
   };
 
   return (
