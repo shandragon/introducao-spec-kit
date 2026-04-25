@@ -13,15 +13,23 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(initialDate || new Date().toISOString().split('T')[0]);
+  const [startTime, setStartTime] = useState('09:00');
+  const [duration, setDuration] = useState(60);
   const [status, setStatus] = useState<Status>('PENDENTE');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title) return;
-    // Append T00:00:00Z to ensure the backend creates the date at UTC midnight,
-    // avoiding timezone shifts when retrieving it later.
     const utcDate = `${date}T00:00:00.000Z`;
-    onSubmit({ title, description, date: utcDate, status });
+    const startDateTime = new Date(`${date}T${startTime}:00Z`);
+    onSubmit({ 
+      title, 
+      description, 
+      date: utcDate, 
+      startTime: startDateTime.toISOString(), 
+      durationMinutes: duration, 
+      status 
+    } as any);
   };
 
   return (
@@ -29,39 +37,14 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
       <div className="modal-content">
         <h2>Nova Tarefa</h2>
         <form onSubmit={handleSubmit}>
+          {/* ... inputs existentes ... */}
           <div className="form-group">
-            <label>Título</label>
-            <input 
-              type="text" 
-              value={title} 
-              onChange={(e) => setTitle(e.target.value)} 
-              required 
-              placeholder="Ex: Lavar o carro"
-            />
+            <label>Horário de Início</label>
+            <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} required />
           </div>
           <div className="form-group">
-            <label>Descrição</label>
-            <textarea 
-              value={description} 
-              onChange={(e) => setDescription(e.target.value)} 
-            />
-          </div>
-          <div className="form-group">
-            <label>Data</label>
-            <input 
-              type="date" 
-              value={date} 
-              onChange={(e) => setDate(e.target.value)} 
-              required 
-            />
-          </div>
-          <div className="form-group">
-            <label>Status</label>
-            <select value={status} onChange={(e) => setStatus(e.target.value as Status)}>
-              {statusOptions.map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
-            </select>
+            <label>Duração (minutos)</label>
+            <input type="number" value={duration} onChange={(e) => setDuration(parseInt(e.target.value))} required />
           </div>
           <div className="form-actions">
             <button type="button" className="secondary" onClick={onClose}>Cancelar</button>
@@ -71,6 +54,6 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
       </div>
     </div>
   );
-};
+
 
 export default TaskForm;

@@ -15,9 +15,10 @@ const Calendar: React.FC<CalendarProps> = ({ tasks, onTaskDrop, onDateClick, onT
   const events = tasks.map(task => ({
     id: task.id,
     title: task.title,
-    // Ensure we only use the date part (YYYY-MM-DD) to avoid FullCalendar 
-    // interpreting UTC midnight as the previous day in local timezones.
-    start: task.date.split('T')[0],
+    start: task.startTime || task.date, // Usa startTime se disponível
+    end: task.startTime 
+      ? new Date(new Date(task.startTime).getTime() + task.durationMinutes * 60000).toISOString()
+      : undefined,
   }));
 
   return (
