@@ -91,6 +91,15 @@ button.danger:hover {
   background-color: #c82333;
 }
 
+button.logout-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+button.logout-button:hover {
+  background-color: #5a6268;
+}
+
 nav button {
   margin-left: 10px;
 }

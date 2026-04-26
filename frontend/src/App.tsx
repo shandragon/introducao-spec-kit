@@ -8,6 +8,7 @@ import TaskModal from './components/TaskModal'
 import { LoginForm } from './components/LoginForm'
 import { LoginWrapper } from './components/LoginWrapper'
 import { PrivateRoute } from './components/PrivateRoute'
+import { LogoutButton } from './components/LogoutButton'
 import { AuthProvider } from './context/AuthContext'
 import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails } from './services/taskService'
 import { Task, Status, CreateTask } from '../../shared/types'
@@ -90,6 +91,7 @@ function AppContent() {
           <button onClick={() => setView('calendar')}>Calendar</button>
           <button onClick={() => setView('tree')}>Tree View</button>
           <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
+          <LogoutButton />
         </nav>
       </header>
 
