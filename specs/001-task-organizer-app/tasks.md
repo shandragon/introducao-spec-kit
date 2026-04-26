@@ -42,6 +42,7 @@
 - [x] [X] T009 Configurar tipos TypeScript compartilhados em shared/types.ts
 - [x] [X] T010 Implementar servidor Express base com tratamento de erros em backend/src/index.ts
 - [x] [X] T011 Configurar cliente Prisma e conexão com o banco de dados em backend/src/lib/prisma.ts
+- [ ] T042 [P] Implementar Provedor de Contexto (Auth/TaskContext) no frontend para sincronização de estado global em frontend/src/context/
 
 **Checkpoint**: Fundação pronta - containers rodando e banco de dados conectado
 
@@ -86,7 +87,7 @@
 
 - [x] T021 [P] [US2] Teste unitário para lógica de deslocamento de data recursivo em backend/tests/unit/taskService.test.ts
 - [x] T022 [P] [US2] Teste de integração para criação de tarefas com parentId em backend/tests/integration/tasks.test.ts
-- [x] T039 [P] [US2] Teste de integração para validar suporte a 5 níveis de profundidade em backend/tests/integration/tasks.test.ts
+- [x] T039 [P] [US2] Teste de carga para validar suporte a 5 níveis de profundidade e renderização de 100 tarefas em < 150ms em backend/tests/integration/tasks.test.ts
 
 ### Implementação para História de Usuário 2
 
@@ -128,7 +129,7 @@
 
 - [x] T032 [P] Atualizar documentação e README.md com exemplos de uso dos containers
 - [x] T033 [P] Realizar limpeza de código e refatoração em backend/ e frontend/
-- [x] T034 Validar todos os critérios de sucesso (CS-001 a CS-004) em containers similares a produção
+- [x] T034 Executar bateria de testes de performance (Lighthouse/Custom Scripts) para validar CS-001 a CS-004 em ambiente containerizado
 
 ---
 

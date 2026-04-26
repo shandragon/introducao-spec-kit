@@ -65,7 +65,7 @@ Como usuário, quero gerenciar o status das minhas tarefas (pendente, em planeja
 - **RF-003**: O sistema DEVE fornecer uma visualização de calendário mensal/semanal.
 - **RF-004**: O sistema DEVE permitir o reagendamento de tarefas via Drag-and-Drop no calendário.
 - **RF-005**: O sistema DEVE suportar os status: Pendente, Em Planejamento, Em Execução e Concluída.
-- **RF-006**: O sistema DEVE fornecer três modos de visualização: Individual (Detalhes), Árvore Hierárquica e Calendário.
+- **RF-006**: O sistema DEVE fornecer três modos de visualização: Modal de Detalhes Lateral, Árvore Hierárquica e Calendário.
 - **RF-007**: O sistema DEVE persistir os dados em um banco de dados relacional (PostgreSQL).
 
 ### Entidades Chave *(inclua se a funcionalidade envolver dados)*
