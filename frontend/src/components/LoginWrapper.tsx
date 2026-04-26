@@ -15,14 +15,18 @@ export const LoginWrapper: React.FC = () => {
         body: JSON.stringify({ login: loginInput, password: passwordInput })
       });
 
-      if (!response.ok) throw new Error('Falha no login');
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Falha no login');
+      }
       
-      const { token, user } = await response.json();
+      const { token, user } = data;
       login(token, user);
       navigate('/');
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert('Login falhou');
+      alert(error.message || 'Login falhou');
     }
   };
 
