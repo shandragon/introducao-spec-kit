@@ -12,8 +12,8 @@
 
 ## Fase 2: Fundacional (Lógica de Agrupamento)
 
-- [ ] T003 Criar testes unitários para a função de agrupamento cronológico em frontend/tests/unit/taskGrouping.test.ts
-- [ ] T004 Implementar função helper `groupTasksChronologically` em frontend/src/services/taskService.ts (ou novo arquivo de utils)
+- [ ] T003 Criar testes unitários para a função de agrupamento cronológico, incluindo cenários para tarefas sem data e preservação de hierarquia interna em frontend/tests/unit/taskGrouping.test.ts
+- [ ] T004 Implementar função helper `groupTasksChronologically` garantindo o agrupamento "Sem Data" e o aninhamento de sub-tarefas em frontend/src/services/taskService.ts
 
 ## Fase 3: História de Usuário 1 - Visualização Cronológica Agrupada [US1]
 

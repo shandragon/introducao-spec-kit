@@ -66,8 +66,8 @@ Como usuário, quero poder alternar entre a árvore hierárquica (pai/filho) e a
 - **RF-003**: O sistema DEVE exibir as tarefas como o terceiro nível da hierarquia cronológica.
 - **RF-004**: O sistema DEVE utilizar um design de "blocos encadeados" com estilos visuais modernos (cards, sombras, bordas suaves).
 - **RF-005**: O sistema DEVE permitir expandir/colapsar os blocos de mês e dia.
-- **RF-006**: O sistema DEVE lidar com tarefas sem data em um agrupamento específico [PRECISA DE ESCLARECIMENTO: seção "Sem Data" ou ocultar?].
-- **RF-007**: O sistema DEVE decidir como exibir a hierarquia pai/filho original dentro dos blocos cronológicos [PRECISA DE ESCLARECIMENTO: achatar a hierarquia ou manter aninhamento interno?].
+- **RF-006**: O sistema DEVE agrupar tarefas sem data em uma seção específica chamada "Sem Data" ao final da visualização.
+- **RF-007**: O sistema DEVE manter o aninhamento interno da hierarquia pai/filho original dentro dos blocos cronológicos quando as tarefas pertencerem ao mesmo dia.
 
 ### Entidades Chave *(inclua se a funcionalidade envolver dados)*
 
