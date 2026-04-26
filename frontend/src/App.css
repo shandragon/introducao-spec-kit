@@ -108,6 +108,16 @@ button:active {
   transform: translateY(1px);
 }
 
+/* Nav Button Styles (using secondary for harmony) */
+nav button {
+  background-color: #add8e6;
+  color: #333;
+}
+
+nav button:hover {
+  background-color: #90c3d4;
+}
+
 /* Confirmation/Addition - Blue */
 button.primary, button.confirm {
   background-color: #007bff;
@@ -116,39 +126,6 @@ button.primary, button.confirm {
 
 button.primary:hover, button.confirm:hover {
   background-color: #0056b3;
-}
-
-/* Cancellation/Closing - Light Blue */
-button.secondary, button.cancel {
-  background-color: #add8e6;
-  color: #333;
-}
-
-button.secondary:hover, button.cancel:hover {
-  background-color: #90c3d4;
-}
-
-/* Danger - Red */
-button.danger {
-  background-color: #dc3545;
-  color: white;
-}
-
-button.danger:hover {
-  background-color: #c82333;
-}
-
-button.logout-button {
-  background-color: #6c757d;
-  color: white;
-}
-
-button.logout-button:hover {
-  background-color: #5a6268;
-}
-
-nav button {
-  margin-left: 10px;
 }
 
 .modal-overlay {
@@ -208,4 +185,71 @@ nav button {
 
 .status-selector {
   margin-top: 10px;
+}
+
+/* Chronological Tree Styling */
+.chronological-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.month-group, .day-group {
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.month-label {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 8px;
+}
+
+.day-label {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 10px 0;
+  padding-left: 10px;
+}
+
+.task-item-container {
+  margin-left: 20px;
+  border-left: 2px solid #e1e4e8;
+  padding-left: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.task-item:hover {
+  background: #f0f7ff;
+}
+
+.task-title {
+  flex-grow: 1;
+  margin-left: 8px;
+}
+
+.task-children {
+  margin-left: 20px;
+}
+
+button.logout-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+button.logout-button:hover {
+  background-color: #5a6268;
 }
