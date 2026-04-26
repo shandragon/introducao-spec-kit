@@ -39,7 +39,7 @@ const TaskItem: React.FC<{ task: Task; onTaskClick: (task: Task) => void }> = ({
     <div className="task-item-container">
       <div className="task-item" onClick={() => onTaskClick(task)}>
         <span className={`status-dot ${task.status.toLowerCase()}`}></span>
-        <span className="task-title">{task.title}</span>
+        <span className="task-title">{task.title} ({task.status.toLowerCase()})</span>
         <span className="task-time">{new Date(task.startTime).toLocaleDateString('pt-BR')}</span>
       </div>
       {task.children && task.children.length > 0 && (

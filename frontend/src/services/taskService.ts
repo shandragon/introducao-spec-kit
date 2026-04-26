@@ -84,7 +84,7 @@ export const groupTasksChronologically = (tasks: Task[]): ChronologicalGroup[] =
 
     const subGroups = Object.keys(groups[monthKey]).sort().map(dayKey => {
       const dayTasks = groups[monthKey][dayKey].sort((a, b) => a.startTime.localeCompare(b.startTime));
-      const taskMap = new Map(dayTasks.map(t => [t.id, { ...t, children: [] }]));
+      const taskMap = new Map<string, Task & { children: Task[] }>(dayTasks.map(t => [t.id, { ...t, children: [] }]));
       const roots: Task[] = [];
       
       taskMap.forEach(task => {
