@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Calendar from './components/Calendar'
 import TreeView from './components/TreeView'
+import { ChronologicalTreeView } from './components/ChronologicalTreeView' // New import
 import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
 import TaskModal from './components/TaskModal'
@@ -10,13 +11,14 @@ import { LoginWrapper } from './components/LoginWrapper'
 import { PrivateRoute } from './components/PrivateRoute'
 import { LogoutButton } from './components/LogoutButton'
 import { AuthProvider } from './context/AuthContext'
-import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails } from './services/taskService'
+import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails, groupTasksChronologically } from './services/taskService'
 import { Task, Status, CreateTask } from '../../shared/types'
 import './App.css'
 
 function AppContent() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [view, setView] = useState<'calendar' | 'tree'>('calendar')
+  const [treeMode, setTreeMode] = useState<'hierarchical' | 'chronological'>('hierarchical')
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [initialDate, setInitialDate] = useState<string | undefined>()
@@ -89,7 +91,8 @@ function AppContent() {
         <h1>Task Organizer</h1>
         <nav>
           <button onClick={() => setView('calendar')}>Calendar</button>
-          <button onClick={() => setView('tree')}>Tree View</button>
+          <button onClick={() => { setView('tree'); setTreeMode('hierarchical'); }}>Hierarchical</button>
+          <button onClick={() => { setView('tree'); setTreeMode('chronological'); }}>Chronological</button>
           <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
           <LogoutButton />
         </nav>
@@ -99,7 +102,13 @@ function AppContent() {
         {view === 'calendar' ? (
           <Calendar tasks={tasks} onTaskDrop={handleTaskDrop} onDateClick={openForm} onTaskClick={(task) => setSelectedTask(task)} />
         ) : (
-          <TreeView tasks={tasks} />
+          <div className="tree-container">
+            {treeMode === 'hierarchical' ? (
+              <TreeView tasks={tasks} />
+            ) : (
+              <ChronologicalTreeView groups={groupTasksChronologically(tasks)} onTaskClick={(task) => setSelectedTask(task)} />
+            )}
+          </div>
         )}
       </main>
 

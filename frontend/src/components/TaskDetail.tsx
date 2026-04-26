@@ -58,7 +58,7 @@ const TaskDetail: React.FC<TaskDetailProps> = ({ task, onStatusChange, onDelete,
       ) : (
         <div>
           <h2>{task.title}</h2>
-          <p><strong>Data:</strong> {new Date(task.date).toLocaleDateString('pt-BR')}</p>
+          <p><strong>Data:</strong> {new Date(task.startTime).toLocaleDateString('pt-BR')}</p>
           <p><strong>Início:</strong> {task.startTime ? new Date(task.startTime).toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'}) : 'Não definido'}</p>
           <p><strong>Duração:</strong> {task.durationMinutes} minutos</p>
           <p><strong>Status:</strong> {task.status}</p>

@@ -14,8 +14,8 @@ Representa um agrupamento de tarefas por período.
 | subGroups | ChronologicalGroup[] | Sub-agrupamentos (ex: dias dentro de um mês) |
 
 ## Lógica de Agrupamento
-1. **Nível 1 (Mês)**: Agrupado por `startOfMonth(task.date)`.
-2. **Nível 2 (Dia)**: Agrupado por `startOfDay(task.date)`.
-3. **Casos Especiais**: Tarefas sem data são agrupadas em um bloco "Sem Data" ao final da lista.
+1. **Nível 1 (Mês)**: Agrupado por `startOfMonth(task.startTime)`.
+2. **Nível 2 (Dia)**: Agrupado por `startOfDay(task.startTime)`.
+3. **Casos Especiais**: Tarefas sem `startTime` definida são agrupadas em um bloco "Sem Data" ao final da lista.
 4. **Hierarquia**: Dentro de cada dia, as relações pai/filho originais devem ser preservadas visualmente através de aninhamento.
-5. **Ordenação**: Todos os níveis temporais são ordenados cronologicamente de forma crescente.
+5. **Ordenação**: Todos os níveis temporais são ordenados cronologicamente de forma crescente com base no `startTime`.
