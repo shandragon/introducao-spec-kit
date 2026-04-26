@@ -70,7 +70,9 @@ export const groupTasksChronologically = (tasks: Task[]): ChronologicalGroup[] =
   // Group by month
   const monthsMap = new Map<string, Task[]>();
   withStartTime.forEach(task => {
-    const monthKey = task.startTime.substring(0, 7); // yyyy-MM
+    const [y, m, d] = task.startTime.substring(0, 10).split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    const monthKey = format(date, 'yyyy-MM');
     if (!monthsMap.has(monthKey)) monthsMap.set(monthKey, []);
     monthsMap.get(monthKey)?.push(task);
   });
