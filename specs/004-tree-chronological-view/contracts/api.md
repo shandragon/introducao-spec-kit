@@ -14,7 +14,7 @@ Lógica central de transformação da lista plana de tarefas em uma estrutura an
 
 ### `ChronologicalTreeView`
 Componente principal que alterna entre o estado de agrupamento.
-- **Props**: `tasks: Task[]`, `mode: 'hierarchical' | 'chronological'`.
+- **Props**: `tasks: Task[]`, `treeMode: 'hierarchical' | 'chronological'`.
 
 ### `DateBlock`
 Renderiza um bloco (mês ou dia) com suporte a colapso.
