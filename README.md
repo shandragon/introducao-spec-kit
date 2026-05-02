@@ -2,6 +2,16 @@
 
 Aplicação web para gestão de tarefas com foco em organização temporal e hierárquica. O sistema permite a visualização de tarefas em calendário, árvore e listas individuais, com suporte a sub-tarefas e reagendamento inteligente via drag-and-drop.
 
+## ✨ Funcionalidades Implementadas
+
+- **Autenticação de Usuários:** Sistema de login e proteção de rotas privadas.
+- **Gestão de Tarefas (CRUD):** Criação, edição, visualização e exclusão de tarefas com suporte a sub-tarefas.
+- **Visualizações Dinâmicas:**
+  - **Calendário:** Gestão temporal completa das atividades.
+  - **Árvore Hierárquica:** Visão clara das dependências entre tarefas.
+  - **Árvore Cronológica:** Combinação inovadora de estrutura hierárquica com linha do tempo.
+- **Interatividade:** Reagendamento e organização intuitiva via Drag-and-Drop.
+
 ## 🚀 Tecnologias e Stack Técnica
 
 O projeto utiliza uma stack moderna focada em produtividade, tipagem forte e performance:
@@ -19,9 +29,8 @@ O projeto utiliza uma stack moderna focada em produtividade, tipagem forte e per
 Este projeto é guiado pela **Constituição Spec Kit**, seguindo rigorosamente:
 1. **TDD Mandatório**: O desenvolvimento é orientado a testes (Red-Green-Refactor).
 2. **KISS/YAGNI**: Foco na simplicidade e no essencial para o MVP.
-3. **Deslocamento Relativo**: Reagendar uma tarefa pai propaga o deslocamento temporal para todas as suas filhas automaticamente.
-4. **Gitflow**: Fluxo de trabalho baseado em branches de feature (`feature/[ID]-[nome]`).
-5. **Semantic Commits**: Mensagens de commit seguindo o padrão Conventional Commits.
+3. **Gitflow**: Fluxo de trabalho baseado em branches de feature (`feature/[ID]-[nome]`).
+4. **Semantic Commits**: Mensagens de commit seguindo o padrão Conventional Commits.
 
 ## 🛠️ Como Executar
 
@@ -72,11 +81,13 @@ Para garantir a integridade conforme a constituição do projeto:
 ## 📂 Estrutura do Projeto
 
 ```text
-├── backend/             # Node.js + Express + Prisma (Multi-stage Docker)
-├── frontend/            # React + TypeScript (Multi-stage Docker)
-├── specs/               # Especificações, Planos e Documentação Técnica
+├── backend/             # API Node.js + Express + Prisma
+├── frontend/            # Interface React + TypeScript
+├── shared/              # Tipagens e contratos compartilhados
+├── specs/               # Especificações, Planos e Requisitos (Single Source of Truth)
+├── tests/               # Testes End-to-End (Playwright)
 ├── docker-compose.yml   # Orquestração de serviços
-└── README.md            # Este arquivo
+└── README.md            # Documentação principal
 ```
 
 ---
