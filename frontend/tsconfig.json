@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "baseUrl": "./src",
     "paths": {
       "@task-organizer/shared": ["../shared/types.ts"]
     }
