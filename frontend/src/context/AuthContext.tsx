@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { User } from '../../../shared/types';
+import { User } from '@task-organizer/shared';
 
 interface AuthContextType {
   user: User | null;

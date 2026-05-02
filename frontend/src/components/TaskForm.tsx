@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Status } from '../../../shared/types';
+import { Status } from '@task-organizer/shared';
 
 const statusOptions: Status[] = ['PENDENTE', 'EM_PLANEJAMENTO', 'EM_EXECUCAO', 'CONCLUIDA'];
 

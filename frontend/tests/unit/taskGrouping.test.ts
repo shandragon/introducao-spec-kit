@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { groupTasksChronologically } from '../../src/services/taskService';
-import { Task } from '../../../../shared/types';
+import { Task } from '@task-organizer/shared';
 
 describe('groupTasksChronologically', () => {
   const mockTasks: Task[] = [

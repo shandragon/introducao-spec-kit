@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Task } from '../../../shared/types';
+import { Task } from '@task-organizer/shared';
 import { ChronologicalGroup } from '../services/taskService';
 
 interface DateBlockProps {

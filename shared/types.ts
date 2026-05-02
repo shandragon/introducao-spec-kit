@@ -21,5 +21,19 @@ export interface Task {
   children?: Task[];
 }
 
-export type CreateTask = Omit<Task, "id" | "createdAt" | "updatedAt">;
+export interface AuthResponse {
+  user: User;
+  token: string;
+}
+
+export interface LoginData {
+  login: string;
+  password?: string;
+}
+
+export interface ApiResponse<T> {
+  data?: T;
+  error?: string;
+}
+
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Task } from '../../../shared/types';
+import { Task } from '@task-organizer/shared';
 
 interface TreeViewProps {
   tasks: Task[];

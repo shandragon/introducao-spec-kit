@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Task, Status } from '../../../shared/types';
+import { Task, Status } from '@task-organizer/shared';
 
 interface TaskDetailProps {
   task: Task;

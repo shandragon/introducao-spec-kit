@@ -1,4 +1,4 @@
-import { CreateTask, Task, Status } from '../../../shared/types';
+import { CreateTask, Task, Status } from '@task-organizer/shared';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { fetchWithAuth } from './api';
