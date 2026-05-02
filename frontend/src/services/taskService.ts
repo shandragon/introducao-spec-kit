@@ -1,8 +1,7 @@
 import { CreateTask, Task, Status } from '../../../shared/types';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-
-const API_URL = import.meta.env.VITE_API_URL || '/api/v1';
+import { fetchWithAuth } from './api';
 
 export interface ChronologicalGroup {
   label: string;
@@ -11,15 +10,14 @@ export interface ChronologicalGroup {
 }
 
 export const listTasks = async (): Promise<Task[]> => {
-  const response = await fetch(`${API_URL}/tasks`);
+  const response = await fetchWithAuth('/tasks');
   if (!response.ok) throw new Error('Failed to fetch tasks');
   return response.json();
 };
 
 export const createTask = async (task: CreateTask): Promise<Task> => {
-  const response = await fetch(`${API_URL}/tasks`, {
+  const response = await fetchWithAuth('/tasks', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(task),
   });
   if (!response.ok) throw new Error('Failed to create task');
@@ -27,9 +25,8 @@ export const createTask = async (task: CreateTask): Promise<Task> => {
 };
 
 export const updateTaskDate = async (id: string, date: string): Promise<Task> => {
-  const response = await fetch(`${API_URL}/tasks/${id}`, {
+  const response = await fetchWithAuth(`/tasks/${id}`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ date }),
   });
   if (!response.ok) throw new Error('Failed to update task date');
@@ -37,9 +34,8 @@ export const updateTaskDate = async (id: string, date: string): Promise<Task> =>
 };
 
 export const updateTaskStatus = async (id: string, status: Status): Promise<Task> => {
-  const response = await fetch(`${API_URL}/tasks/${id}/status`, {
+  const response = await fetchWithAuth(`/tasks/${id}/status`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status }),
   });
   if (!response.ok) throw new Error('Failed to update task status');
@@ -47,9 +43,8 @@ export const updateTaskStatus = async (id: string, status: Status): Promise<Task
 };
 
 export const updateTaskDetails = async (id: string, details: { title: string; description?: string }): Promise<Task> => {
-  const response = await fetch(`${API_URL}/tasks/${id}/details`, {
+  const response = await fetchWithAuth(`/tasks/${id}/details`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(details),
   });
   if (!response.ok) throw new Error('Failed to update task details');
@@ -57,7 +52,7 @@ export const updateTaskDetails = async (id: string, details: { title: string; de
 };
 
 export const deleteTask = async (id: string): Promise<void> => {
-  const response = await fetch(`${API_URL}/tasks/${id}`, {
+  const response = await fetchWithAuth(`/tasks/${id}`, {
     method: 'DELETE',
   });
   if (!response.ok) throw new Error('Failed to delete task');
