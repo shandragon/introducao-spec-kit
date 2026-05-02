@@ -1,7 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET must be defined in environment variables');
+}
 
 export const generateToken = (user: { id: string; login: string }) => {
   return jwt.sign(user, JWT_SECRET, { expiresIn: '30m' });

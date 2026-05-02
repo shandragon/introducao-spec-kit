@@ -9,7 +9,8 @@
     "dev": "ts-node -r tsconfig-paths/register src/index.ts",
     "test": "vitest",
     "prisma:push": "prisma db push && prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "gen-secret": "node scripts/generate-secret.mjs"
   },
   "keywords": [],
   "author": "",

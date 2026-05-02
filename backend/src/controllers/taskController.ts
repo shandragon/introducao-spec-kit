@@ -3,6 +3,7 @@ import * as taskService from '@services/taskService';
 
 export const createTask = async (req: Request, res: Response) => {
   try {
+    const userId = (req as any).user.id;
     const { title, description, date, startTime, durationMinutes, parentId } = req.body;
     
     // Provide defaults if not provided in request
@@ -15,7 +16,7 @@ export const createTask = async (req: Request, res: Response) => {
         parentId
     };
 
-    const task = await taskService.createTask(taskData);
+    const task = await taskService.createTask(userId, taskData);
     res.status(201).json(task);
   } catch (error: any) {
     console.error("Error in createTask:", error);
@@ -29,7 +30,8 @@ export const createTask = async (req: Request, res: Response) => {
 
 export const listTasks = async (req: Request, res: Response) => {
   try {
-    const tasks = await taskService.listTasks();
+    const userId = (req as any).user.id;
+    const tasks = await taskService.listTasks(userId);
     res.json(tasks);
   } catch (error) {
     console.error(error);
@@ -39,9 +41,10 @@ export const listTasks = async (req: Request, res: Response) => {
 
 export const updateTaskDate = async (req: Request, res: Response) => {
   try {
+    const userId = (req as any).user.id;
     const { id } = req.params as { id: string };
     const { date } = req.body;
-    const task = await taskService.updateTaskDate(id, new Date(date));
+    const task = await taskService.updateTaskDate(userId, id, new Date(date));
     res.json(task);
   } catch (error) {
     res.status(500).json({ error: 'Failed to update task date' });
@@ -50,9 +53,10 @@ export const updateTaskDate = async (req: Request, res: Response) => {
 
 export const updateTaskStatus = async (req: Request, res: Response) => {
   try {
+    const userId = (req as any).user.id;
     const { id } = req.params as { id: string };
     const { status } = req.body;
-    const task = await taskService.updateTaskStatus(id, status);
+    const task = await taskService.updateTaskStatus(userId, id, status);
     res.json(task);
   } catch (error) {
     res.status(500).json({ error: 'Failed to update task status' });
@@ -61,9 +65,10 @@ export const updateTaskStatus = async (req: Request, res: Response) => {
 
 export const updateTask = async (req: Request, res: Response) => {
   try {
+    const userId = (req as any).user.id;
     const { id } = req.params as { id: string };
     const { title, description } = req.body;
-    const task = await taskService.updateTask(id, { title, description });
+    const task = await taskService.updateTask(userId, id, { title, description });
     res.json(task);
   } catch (error) {
     res.status(500).json({ error: 'Failed to update task' });
@@ -72,8 +77,9 @@ export const updateTask = async (req: Request, res: Response) => {
 
 export const deleteTask = async (req: Request, res: Response) => {
   try {
+    const userId = (req as any).user.id;
     const { id } = req.params as { id: string };
-    await taskService.deleteTask(id);
+    await taskService.deleteTask(userId, id);
     res.status(204).send();
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete task' });

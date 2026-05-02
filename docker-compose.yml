@@ -21,6 +21,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
       POSTGRES_DB: ${POSTGRES_DB:-task_db}
+      JWT_SECRET: ${JWT_SECRET:-dev_secret_key_123}
       PORT: 3001
     ports:
       - "3021:3001"
