@@ -4,7 +4,7 @@ Aplicação web para gestão de tarefas com foco em organização temporal e hie
 
 ## ✨ Funcionalidades Implementadas
 
-- **Autenticação de Usuários:** Sistema de login e proteção de rotas privadas.
+- **Autenticação de Usuários:** Sistema de login e cadastro, com proteção de rotas privadas.
 - **Gestão de Tarefas (CRUD):** Criação, edição, visualização e exclusão de tarefas com suporte a sub-tarefas.
 - **Visualizações Dinâmicas:**
   - **Calendário:** Gestão temporal completa das atividades.
