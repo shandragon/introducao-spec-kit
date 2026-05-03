@@ -142,7 +142,7 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <Toaster position="top-right" />
+      <Toaster position="top-center" />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginWrapper />} />
