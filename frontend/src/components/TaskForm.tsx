@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Status } from '@task-organizer/shared';
 
 const statusOptions: Status[] = ['PENDENTE', 'EM_PLANEJAMENTO', 'EM_EXECUCAO', 'CONCLUIDA'];
@@ -38,9 +39,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
         onClose();
     } catch (err: any) {
         if (err.message === 'CONFLITO') {
-            alert('Conflito de horário detectado! Por favor, escolha outro horário.');
+            toast.error('Conflito de horário detectado! Por favor, escolha outro horário.');
         } else {
-            alert('Erro ao criar tarefa.');
+            toast.error('Erro ao criar tarefa.');
         }
     }
   };
