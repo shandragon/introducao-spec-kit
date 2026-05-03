@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Status } from '@task-organizer/shared';
+import { Status, CreateTask } from '@task-organizer/shared';
 
 const statusOptions: Status[] = ['PENDENTE', 'EM_PLANEJAMENTO', 'EM_EXECUCAO', 'CONCLUIDA'];
 
 interface TaskFormProps {
   initialDate?: string;
   onClose: () => void;
-  onSubmit: (task: { title: string; description: string; date: string; status: Status }) => void;
+  onSubmit: (task: CreateTask) => void;
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) => {

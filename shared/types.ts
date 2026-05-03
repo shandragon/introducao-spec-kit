@@ -21,6 +21,16 @@ export interface Task {
   children?: Task[];
 }
 
+export interface CreateTask {
+  title: string;
+  description?: string;
+  date: string;
+  startTime: string;
+  durationMinutes: number;
+  status?: Status;
+  parentId?: string | null;
+}
+
 export interface AuthResponse {
   user: User;
   token: string;
