@@ -52,10 +52,19 @@
   font-family: sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 header nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
+  flex-grow: 1;
 }
 
 main {
