@@ -1,10 +1,12 @@
 <!--
 Sync Impact Report:
-- Version change: 1.4.0 → 1.5.0
+- Version change: 1.5.0 → 1.6.0
 - List of modified principles:
-  - None
+  - XIV. Proibição de !important no CSS -> XIV. Proibição de !important e Estilos Inline no CSS
 - Added sections:
-  - XIV. Proibição de !important no CSS
+  - None
+- Removed sections:
+  - None
 - Templates requiring updates:
   - ✅ .specify/templates/plan-template.md
   - ✅ .specify/templates/spec-template.md
@@ -55,8 +57,8 @@ O idioma oficial do projeto para toda a documentação, especificações, planos
 ### XIII. Consistência de Estilo no Frontend
 A interface deve manter um design uniforme em todas as telas. Elementos de UI, como botões, formulários e tipografia, devem seguir rigorosamente o mesmo padrão visual e comportamento em toda a aplicação. A consistência reduz a carga cognitiva do usuário e fortalece a identidade visual da aplicação.
 
-### XIV. Proibição de !important no CSS
-É estritamente proibido o uso da diretiva `!important` nos arquivos CSS. Esta diretiva quebra a hierarquia de especificidade, tornando o estilo frágil, difícil de depurar e manter. O design deve ser alcançado através de seletores estruturados e organização de classes adequadas.
+### XIV. Manutenibilidade e Especificidade em CSS
+É estritamente proibido o uso da diretiva `!important` e de estilos in-line (`style="..."`) nos arquivos HTML/JSX/TSX. Estas práticas quebram a hierarquia de especificidade e dificultam a manutenibilidade, violando os princípios de UI/UX e consistência de estilo. O design deve ser alcançado exclusivamente através de classes CSS organizadas em arquivos dedicados ou módulos de estilo.
 
 ## Restrições Técnicas
 
@@ -70,4 +72,4 @@ Mudanças nesta constituição exigem uma análise de impacto em todos os templa
 
 Esta constituição é a autoridade máxima do projeto e prevalece sobre decisões técnicas ad-hoc. Todos os membros do projeto são responsáveis por garantir o cumprimento destes princípios. Desvios excepcionais devem ser documentados na seção "Complexity Tracking" dos planos de implementação, detalhando a justificativa e as alternativas consideradas.
 
-**Version**: 1.5.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-04-25
+**Version**: 1.6.0 | **Ratified**: 2026-04-19 | **Last Amended**: 2026-05-03
