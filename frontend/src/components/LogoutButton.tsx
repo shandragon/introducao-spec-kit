@@ -1,12 +1,17 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 
-export const LogoutButton: React.FC = () => {
+interface LogoutButtonProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export const LogoutButton: React.FC<LogoutButtonProps> = ({ children, className }) => {
   const { logout } = useAuth();
 
   return (
-    <button onClick={logout} className="logout-button">
-      Sair
+    <button onClick={logout} className={`logout-button ${className || ''}`}>
+      {children || 'Sair'}
     </button>
   );
 };

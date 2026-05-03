@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Eye, Plus, User, LogOut } from 'lucide-react';
 import Calendar from './components/Calendar'
 import TreeView from './components/TreeView'
-import { ChronologicalTreeView } from './components/ChronologicalTreeView' // New import
+import { ChronologicalTreeView } from './components/ChronologicalTreeView' 
 import TaskDetail from './components/TaskDetail'
 import TaskForm from './components/TaskForm'
 import TaskModal from './components/TaskModal'
@@ -94,16 +95,24 @@ function AppContent() {
         <h1>Task Organizer</h1>
         <nav>
           <div className="dropdown">
-            <button>Visualização ▼</button>
+            <button className="btn-icon">
+              <Eye size={16} /> Visualização ▼
+            </button>
             <div className="dropdown-content">
               <button onClick={() => setView('calendar')}>Calendar</button>
               <button onClick={() => { setView('tree'); setTreeMode('hierarchical'); }}>Hierarchical</button>
               <button onClick={() => { setView('tree'); setTreeMode('chronological'); }}>Chronological</button>
             </div>
           </div>
-          <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
-          <button onClick={() => window.location.href = '/profile'}>Perfil</button>
-          <LogoutButton />
+          <button className="primary btn-icon" onClick={() => openForm()}>
+            <Plus size={16} /> Nova Tarefa
+          </button>
+          <button className="btn-icon" onClick={() => window.location.href = '/profile'}>
+            <User size={16} /> Perfil
+          </button>
+          <LogoutButton className="btn-icon">
+            <LogOut size={16} /> Sair
+          </LogoutButton>
         </nav>
       </header>
 
