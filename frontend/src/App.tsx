@@ -97,7 +97,7 @@ function AppContent() {
           <button onClick={() => { setView('tree'); setTreeMode('hierarchical'); }}>Hierarchical</button>
           <button onClick={() => { setView('tree'); setTreeMode('chronological'); }}>Chronological</button>
           <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
-          <a href="/profile" className="button" style={{ textDecoration: 'none' }}>Perfil</a>
+          <button onClick={() => window.location.href = '/profile'}>Perfil</button>
           <LogoutButton />
         </nav>
       </header>
