@@ -42,8 +42,13 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
             <input type="password" placeholder="Confirmar Senha" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           </div>
           <button type="submit" className="primary">Cadastrar</button>
-          <div style={{ marginTop: '15px', textAlign: 'center' }}>
-            <a href="/login" className="button">Voltar ao Login</a>
+          <div style={{ marginTop: '15px', display: 'flex', justifyContent: 'flex-end' }}>
+            <button 
+              type="button"
+              onClick={() => window.location.href = '/login'}
+            >
+              Voltar ao Login
+            </button>
           </div>
         </form>
       </div>

@@ -10,8 +10,13 @@ export const ProfilePage: React.FC = () => {
         <ProfileForm />
         <PasswordChangeForm />
       </div>
-      <div style={{ marginTop: '20px' }}>
-        <a href="/" className="button">Voltar para Tarefas</a>
+      <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
+        <button 
+          onClick={() => window.location.href = '/'}
+          style={{ textDecoration: 'none' }}
+        >
+          Voltar para Tarefas
+        </button>
       </div>
     </div>
   );
