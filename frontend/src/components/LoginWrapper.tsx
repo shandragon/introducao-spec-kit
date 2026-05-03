@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { LoginForm } from './LoginForm';
 import { useAuth } from '../context/AuthContext';
 
@@ -26,7 +27,7 @@ export const LoginWrapper: React.FC = () => {
       navigate('/');
     } catch (error: any) {
       console.error(error);
-      alert(error.message || 'Login falhou');
+      toast.error(error.message || 'Login falhou');
     }
   };
 
