@@ -18,7 +18,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialDate, onClose, onSubmit }) =
   const [duration, setDuration] = useState(60);
   const [status, setStatus] = useState<Status>('PENDENTE');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title) return;
     const utcDate = `${date}T00:00:00.000Z`;
