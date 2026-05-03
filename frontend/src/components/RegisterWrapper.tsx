@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { RegisterForm } from './RegisterForm';
 
 export const RegisterWrapper: React.FC = () => {
@@ -19,10 +20,10 @@ export const RegisterWrapper: React.FC = () => {
         throw new Error(data.message || 'Falha no cadastro');
       }
       
-      alert('Cadastro realizado com sucesso!');
+      toast.success('Cadastro realizado com sucesso!');
       navigate('/login');
     } catch (error: any) {
-      alert(error.message || 'Cadastro falhou');
+      toast.error(error.message || 'Cadastro falhou');
     }
   };
 

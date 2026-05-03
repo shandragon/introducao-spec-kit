@@ -12,6 +12,7 @@ import { RegisterWrapper } from './components/RegisterWrapper'
 import { PrivateRoute } from './components/PrivateRoute'
 import { LogoutButton } from './components/LogoutButton'
 import { AuthProvider } from './context/AuthContext'
+import { Toaster } from 'react-hot-toast';
 import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails, groupTasksChronologically } from './services/taskService'
 import { Task, Status, CreateTask } from '../../shared/types'
 import './App.css'
@@ -141,6 +142,7 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
+      <Toaster position="top-right" />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginWrapper />} />
