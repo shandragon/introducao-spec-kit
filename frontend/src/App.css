@@ -86,10 +86,8 @@ aside {
   z-index: 1000;
 }
 
-/* Dropdown Menu Styling */
-.dropdown {
-  position: relative;
-  display: inline-block;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 .dropdown-content {
