@@ -1,75 +1,104 @@
-# Plano de Implementação: Gerenciamento de Perfil de Usuário
+# Plano de Implementação: [FUNCIONALIDADE]
 
-**Branch**: `feature/006-user-profile-management` | **Data**: 2026-05-03 | **Especificação**: [specs/006-user-profile-management/spec.md]
-**Entrada**: Especificação da funcionalidade de `specs/006-user-profile-management/spec.md`
+**Branch**: `feature/[###-nome-da-funcionalidade]` | **Data**: [DATA] | **Especificação**: [link]
+**Entrada**: Especificação da funcionalidade de `/specs/[###-nome-da-funcionalidade]/spec.md`
+
+**Nota**: Este template é preenchido pelo comando `/speckit.plan`. Veja `.specify/templates/plan-template.md` para o fluxo de execução.
 
 ## Resumo
 
-Implementar uma página de perfil para usuários autenticados, permitindo a edição de nome, e-mail e a troca segura de senha. O backend validará a senha atual via `bcrypt` e garantirá a unicidade do e-mail no PostgreSQL via Prisma. O frontend utilizará `react-hot-toast` para feedback visual imediato, mantendo a consistência de estilo da aplicação.
+[Extrair da especificação da funcionalidade: requisito principal + abordagem técnica da pesquisa]
 
 ## Contexto Técnico
 
-**Linguagem/Versão**: TypeScript / Node.js 20+  
-**Principais Dependências**: React (Frontend), Express (Backend), Prisma ORM, bcrypt (Segurança), react-hot-toast (UI Feedback)  
-**Armazenamento**: PostgreSQL  
-**Testes**: Vitest (Unitário e Integração), Playwright (E2E)  
-**Plataforma Alvo**: Web  
-**Tipo de Projeto**: Aplicação Web (Frontend + Backend)  
-**Metas de Performance**: Atualização de perfil em < 500ms (P95).  
-**Restrições**: Proibição de `!important` no CSS; adesão estrita ao TDD; interface responsiva.  
-**Escala/Escopo**: Funcionalidade disponível para todos os usuários cadastrados.
+<!--
+  AÇÃO REQUERIDA: Substitua o conteúdo desta seção com os detalhes técnicos
+  para o projeto. A estrutura aqui é apresentada em caráter consultivo para guiar
+  o processo de iteração.
+-->
+
+**Linguagem/Versão**: [ex: Python 3.11, Swift 5.9, Rust 1.75 ou PRECISA DE ESCLARECIMENTO]  
+**Principais Dependências**: [ex: FastAPI, UIKit, LLVM ou PRECISA DE ESCLARECIMENTO]  
+**Armazenamento**: [se aplicável, ex: PostgreSQL, CoreData, arquivos ou N/A]  
+**Testes**: [ex: pytest, XCTest, cargo test ou PRECISA DE ESCLARECIMENTO]  
+**Plataforma Alvo**: [ex: servidor Linux, iOS 15+, WASM ou PRECISA DE ESCLARECIMENTO]
+**Tipo de Projeto**: [ex: biblioteca/cli/web-service/app-mobile/compilador/app-desktop ou PRECISA DE ESCLARECIMENTO]  
+**Metas de Performance**: [específico do domínio, ex: 1000 req/s, 10k linhas/seg, 60 fps ou PRECISA DE ESCLARECIMENTO]  
+**Restrições**: [específico do domínio, ex: <200ms p95, <100MB memória, capaz de operar offline ou PRECISA DE ESCLARECIMENTO]  
+**Escala/Escopo**: [específico do domínio, ex: 10k usuários, 1M LOC, 50 telas ou PRECISA DE ESCLARECIMENTO]
 
 ## Verificação da Constituição
 
 *GATE: Deve passar antes da pesquisa da Fase 0. Verifique novamente após o design da Fase 1.*
 
-1. **TDD Mandatório**: Todos os novos serviços e controladores terão cobertura de testes. `[PASS]`
-2. **Simplicidade (KISS/YAGNI)**: Design de API enxuto e direto ao ponto. `[PASS]`
-3. **Automação Spec Kit**: Todos os artefatos de design foram gerados. `[PASS]`
-4. **UI/UX Centrada no Usuário**: Uso planejado de `react-hot-toast` para feedback consistente. `[PASS]`
-5. **Excelência Técnica**: Contratos de API bem definidos e tipagem TypeScript. `[PASS]`
-6. **Consistência de Estilo**: Layout de formulários seguirá o padrão das páginas existentes. `[PASS]`
-7. **Documentação como Verdade**: Documentação atualizada em `specs/006-user-profile-management/`. `[PASS]`
+[Portões determinados com base no arquivo da constituição]
 
 ## Estrutura do Projeto
 
 ### Documentação (desta funcionalidade)
 
 ```text
-specs/006-user-profile-management/
-├── plan.md              # Este arquivo
-├── research.md          # Saída da Fase 0
-├── data-model.md        # Saída da Fase 1
-├── quickstart.md        # Saída da Fase 1
-├── contracts/           # Saída da Fase 1
-│   └── profile.md       # Contrato da API de perfil
-└── tasks.md             # Saída da Fase 2 (comando /speckit.tasks)
+specs/[###-funcionalidade]/
+├── plan.md              # Este arquivo (saída do comando /speckit.plan)
+├── research.md          # Saída da Fase 0 (comando /speckit.plan)
+├── data-model.md        # Saída da Fase 1 (comando /speckit.plan)
+├── quickstart.md        # Saída da Fase 1 (comando /speckit.plan)
+├── contracts/           # Saída da Fase 1 (comando /speckit.plan)
+└── tasks.md             # Saída da Fase 2 (comando /speckit.tasks - NÃO criado pelo /speckit.plan)
 ```
 
 ### Código Fonte (raiz do repositório)
+<!--
+  AÇÃO REQUERIDA: Substitua a árvore de espaços reservados abaixo pelo layout concreto
+  para esta funcionalidade. Exclua as opções não utilizadas e expanda a estrutura escolhida com
+  caminhos reais (ex: apps/admin, packages/something). O plano entregue não deve
+  incluir os rótulos de Opção.
+-->
 
 ```text
+# [REMOVER SE NÃO UTILIZADO] Opção 1: Projeto único (PADRÃO)
+src/
+├── models/
+├── services/
+├── cli/
+└── lib/
+
+tests/
+├── contract/
+├── integration/
+└── unit/
+
+# [REMOVER SE NÃO UTILIZADO] Opção 2: Aplicação Web (quando "frontend" + "backend" detectados)
 backend/
 ├── src/
-│   ├── controllers/     # profileController.ts
-│   ├── routes/          # profile.ts (novas rotas)
-│   └── services/        # profileService.ts
+│   ├── models/
+│   ├── services/
+│   └── api/
 └── tests/
-    ├── integration/
-    └── unit/
 
 frontend/
 ├── src/
-│   ├── components/      # ProfileForm, PasswordChangeForm
-│   ├── pages/           # ProfilePage
-│   └── services/        # profileService.ts
+│   ├── components/
+│   ├── pages/
+│   └── services/
 └── tests/
+
+# [REMOVER SE NÃO UTILIZADO] Opção 3: Mobile + API (quando "iOS/Android" detectados)
+api/
+└── [mesmo que o backend acima]
+
+ios/ ou android/
+└── [estrutura específica da plataforma: módulos de funcionalidade, fluxos de UI, testes de plataforma]
 ```
 
-**Decisão de Estrutura**: Opção 2 (Aplicação Web). Seguiremos a separação clara entre backend e frontend, expondo novos endpoints de API para o gerenciamento de perfil.
+**Decisão de Estrutura**: [Documentar a estrutura selecionada e referenciar os
+diretórios reais capturados acima]
 
 ## Acompanhamento de Complexidade
 
 > **Preencha APENAS se a Verificação da Constituição tiver violações que devem ser justificadas**
 
-Nenhuma violação identificada.
+| Violação | Por que é necessária | Alternativa simples rejeitada porque |
+|-----------|------------|-------------------------------------|
+| [ex: 4º projeto] | [necessidade atual] | [por que 3 projetos são insuficientes] |
+| [ex: Padrão Repository] | [problema específico] | [por que o acesso direto ao BD é insuficiente] |

@@ -11,6 +11,7 @@ import { LoginWrapper } from './components/LoginWrapper'
 import { RegisterWrapper } from './components/RegisterWrapper'
 import { PrivateRoute } from './components/PrivateRoute'
 import { LogoutButton } from './components/LogoutButton'
+import { ProfilePage } from './pages/ProfilePage'
 import { AuthProvider } from './context/AuthContext'
 import { Toaster } from 'react-hot-toast';
 import { listTasks, updateTaskDate, createTask, deleteTask, updateTaskStatus, updateTaskDetails, groupTasksChronologically } from './services/taskService'
@@ -96,6 +97,7 @@ function AppContent() {
           <button onClick={() => { setView('tree'); setTreeMode('hierarchical'); }}>Hierarchical</button>
           <button onClick={() => { setView('tree'); setTreeMode('chronological'); }}>Chronological</button>
           <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
+          <a href="/profile" className="button" style={{ textDecoration: 'none' }}>Perfil</a>
           <LogoutButton />
         </nav>
       </header>
@@ -147,6 +149,11 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginWrapper />} />
           <Route path="/register" element={<RegisterWrapper />} />
+          <Route path="/profile" element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          } />
           <Route path="/" element={
             <PrivateRoute>
               <AppContent />

@@ -8,17 +8,17 @@ Esta funcionalidade permite que o usuário gerencie seus dados básicos e a segu
 ### Backend
 1. Execute os testes unitários do serviço de perfil:
    ```bash
-   cd backend && npm test tests/unit/profileService.test.ts
+   cd backend && npx vitest run tests/unit/profileService.test.ts
    ```
 2. Execute os testes de integração da API:
    ```bash
-   cd backend && npm test tests/integration/profile.test.ts
+   cd backend && npx vitest run tests/integration/profile.test.ts
    ```
 
-### Frontend
-1. Execute os testes unitários dos componentes de perfil:
+### E2E
+1. Execute os testes de ponta-a-ponta:
    ```bash
-   cd frontend && npm test src/components/ProfileForm.test.tsx
+   npx playwright test tests/e2e/profile.spec.ts
    ```
 
 ## Fluxo de Trabalho Recomendado
