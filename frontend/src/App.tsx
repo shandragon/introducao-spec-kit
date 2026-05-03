@@ -96,7 +96,7 @@ function AppContent() {
         <nav>
           <div className="dropdown">
             <button className="btn-icon">
-              <Eye size={16} /> Visualização ▼
+              <Eye size={16} /> Visualização
             </button>
             <div className="dropdown-content">
               <button onClick={() => setView('calendar')}>Calendar</button>
