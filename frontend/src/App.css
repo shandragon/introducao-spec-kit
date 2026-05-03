@@ -52,11 +52,10 @@
   font-family: sans-serif;
 }
 
-header {
+header nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
 main {
