@@ -47,10 +47,10 @@ Como um sistema de cadastro, quero validar se as informações inseridas pelo us
 ### Requisitos Funcionais
 
 - **RF-001**: O sistema DEVE permitir que novos usuários se cadastrem informando nome, e-mail, login, senha e confirmação de senha.
-- **RF-002**: O sistema DEVE validar se a senha e a confirmação de senha são idênticas.
+- **RF-002**: O sistema DEVE validar se a senha e a confirmação de senha são idênticas, exibindo feedback visual.
 - **RF-003**: O sistema DEVE fornecer um link para a tela de cadastro a partir da tela de login.
 - **RF-004**: O sistema DEVE manter consistência visual (layout semelhante) entre a tela de login e a tela de cadastro.
-- **RF-005**: O sistema DEVE exibir mensagens de erro amigáveis para campos inválidos ou erros de processamento.
+- **RF-005**: O sistema DEVE exibir mensagens de erro amigáveis para campos inválidos, erros de processamento ou e-mail/login já registrados (conflito 409).
 
 ### Entidades Chave
 
