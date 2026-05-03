@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 interface RegisterFormProps {
   onRegister: (name: string, email: string, login: string, password: string, confirmPassword: string) => void;
@@ -10,15 +11,13 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('As senhas não coincidem');
+      toast.error('As senhas não coincidem');
       return;
     }
-    setError(null);
     onRegister(name, email, login, password, confirmPassword);
   };
 
@@ -26,7 +25,6 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
     <div className="login-container">
       <div className="login-card">
         <h1>Cadastro</h1>
-        {error && <p className="error-message" style={{ color: 'red', marginBottom: '15px' }}>{error}</p>}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <input type="text" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} required />
