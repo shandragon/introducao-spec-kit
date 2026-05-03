@@ -8,6 +8,7 @@ import TaskForm from './components/TaskForm'
 import TaskModal from './components/TaskModal'
 import { LoginForm } from './components/LoginForm'
 import { LoginWrapper } from './components/LoginWrapper'
+import { RegisterWrapper } from './components/RegisterWrapper'
 import { PrivateRoute } from './components/PrivateRoute'
 import { LogoutButton } from './components/LogoutButton'
 import { AuthProvider } from './context/AuthContext'
@@ -143,6 +144,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginWrapper />} />
+          <Route path="/register" element={<RegisterWrapper />} />
           <Route path="/" element={
             <PrivateRoute>
               <AppContent />

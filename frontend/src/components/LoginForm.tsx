@@ -37,6 +37,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             />
           </div>
           <button type="submit" className="primary">Entrar</button>
+          <div style={{ marginTop: '15px', textAlign: 'center' }}>
+            <span style={{ fontSize: '14px', color: '#666' }}>Não tem conta? </span>
+            <a href="/register" className="button">
+              Cadastre-se
+            </a>
+          </div>
         </form>
       </div>
     </div>
