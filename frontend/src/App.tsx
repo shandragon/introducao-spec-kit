@@ -93,9 +93,14 @@ function AppContent() {
       <header>
         <h1>Task Organizer</h1>
         <nav>
-          <button onClick={() => setView('calendar')}>Calendar</button>
-          <button onClick={() => { setView('tree'); setTreeMode('hierarchical'); }}>Hierarchical</button>
-          <button onClick={() => { setView('tree'); setTreeMode('chronological'); }}>Chronological</button>
+          <div className="dropdown">
+            <button>Visualização ▼</button>
+            <div className="dropdown-content">
+              <button onClick={() => setView('calendar')}>Calendar</button>
+              <button onClick={() => { setView('tree'); setTreeMode('hierarchical'); }}>Hierarchical</button>
+              <button onClick={() => { setView('tree'); setTreeMode('chronological'); }}>Chronological</button>
+            </div>
+          </div>
           <button className="primary" onClick={() => openForm()}>+ Nova Tarefa</button>
           <button onClick={() => window.location.href = '/profile'}>Perfil</button>
           <LogoutButton />

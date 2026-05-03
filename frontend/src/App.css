@@ -78,13 +78,38 @@ aside {
   z-index: 1000;
 }
 
-/* Calendar Event Styling */
-.fc-event {
-  background-color: #add8e6;
-  border: 1px solid black;
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
   border-radius: 4px;
-  color: #333;
-  padding: 2px 4px;
+  border: 1px solid #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  width: 100%;
+  text-align: left;
+  border-radius: 0;
+  background: white;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
 }
 
 /* Button Base Styles */
