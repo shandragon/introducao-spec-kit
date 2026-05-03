@@ -14,7 +14,6 @@ export const register = async (req: Request, res: Response) => {
     const user = await registerService(name, email, login, password);
     res.status(201).json({ id: user.id, login: user.login });
   } catch (error: any) {
-    console.error('Erro ao registrar usuário:', error);
     if (error.code === 'P2002') {
       return res.status(409).json({ message: 'E-mail ou login já cadastrado' });
     }
